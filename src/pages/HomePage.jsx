@@ -20,8 +20,6 @@ import {
   faMobileAlt,
   faFingerprint,
 } from "@fortawesome/free-solid-svg-icons";
-import { Button } from '../components/ui/button';
-import { testimonials } from '../data/products';
 import HorizontalScrollCarousel from '../components/HorizontalScrollCarousel';
 import '../styles/HomePage.css';
 import '../styles/features.css';
@@ -97,24 +95,6 @@ const HomePage = () => {
     { icon: Award, number: '17+', label: 'Years Experience' },
     { icon: Users, number: '50,000+', label: 'Happy Customers' },
     { icon: Building, number: '25+', label: 'Cities Served' }
-  ];
-
-  const aboutValues = [
-    {
-      icon: Target,
-      title: "Quality First",
-      description: "We never compromise on quality. Every product undergoes rigorous testing to ensure it meets our high standards."
-    },
-    {
-      icon: Heart,
-      title: "Customer Centric",
-      description: "Our customers are at the heart of everything we do. We listen, learn, and continuously improve based on their feedback."
-    },
-    {
-      icon: Lightbulb,
-      title: "Innovation",
-      description: "We constantly innovate to bring you the latest technology and features in electrical switches."
-    }
   ];
 
   const containerVariants = {

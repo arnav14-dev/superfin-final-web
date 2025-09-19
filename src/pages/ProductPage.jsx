@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import "../styles/ProductPage.css";
 
 // Card type to background color mapping
