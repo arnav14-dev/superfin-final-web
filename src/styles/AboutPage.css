@@ -1,0 +1,515 @@
+/* About Page Styles */
+.about-page {
+  overflow: hidden;
+  margin-top: 10px !important;
+  padding: 40px 20px !important;
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--beige-100) 0%, var(--beige-200) 50%, var(--beige-300) 100%) !important;
+  box-shadow: 0 20px 60px rgba(45, 34, 23, 0.1), 0 8px 30px rgba(45, 34, 23, 0.05);
+  min-height: 100vh;
+}
+
+.about-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+.about-hero {
+  padding: 1rem 0 0rem;
+  position: relative;
+  background: transparent !important;
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 25px 25px, rgba(255, 255, 255, 0.1) 2px, transparent 0);
+  background-size: 50px 50px;
+  opacity: 0.1;
+}
+
+.about-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 80rem;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.about-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.about-title .gradient-text {
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 42rem;
+  line-height: 1.6;
+}
+
+.about-story {
+  padding: 1rem 0;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.about-story-content {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: grid;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-story-text {
+  flex: 1;
+}
+.about-story-features {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 50%;
+}
+.about-story-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  line-height: 1.2;
+}
+.storycontent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.about-story-description {
+  max-width: 60%;
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin-right: 2rem;
+  line-height: 1.6;
+}
+
+.about-story-numbers {
+  color: black;
+  font-weight: 700;
+}
+
+.about-story-features {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about-story-feature {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .5rem;
+  background: var(--background-light);
+  border-radius: var(--radius-lg);
+  transition: all 0.3s ease;
+}
+
+.about-story-feature:hover {
+  background: rgba(217, 119, 6, 0.05);
+  transform: translateX(0.5rem);
+}
+
+.about-story-feature-icon {
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.about-story-feature-text {
+  flex: 1;
+}
+
+.about-story-feature-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.about-story-feature-description {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.about-milestones {
+  margin-top: 10px;
+  padding: 2rem 0;
+  background: transparent !important;
+  
+}
+
+.about-milestones-content {
+  max-width: 85rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.about-milestones-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-milestones-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.milestones-timeline {
+  position: relative;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.milestones-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+  transform: translateX(-50%);
+}
+
+.milestone-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  position: relative;
+  width: 80%;
+}
+
+.milestone-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.milestone-content {
+  flex: 1;
+  background: white;
+  padding: 1rem;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-light);
+  position: relative;
+}
+
+.milestone-item:nth-child(odd) .milestone-content {
+  transform: translateX(-14.4rem);
+
+}
+
+.milestone-item:nth-child(even) .milestone-content {
+  transform: translateX(24rem);
+}
+
+.milestone-year {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.125rem;
+  z-index: 1;
+  box-shadow: var(--shadow-md);
+}
+
+.milestone-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  /* margin-bottom: 0.5rem; */
+}
+
+.milestone-description {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.about-values {
+  padding-bottom:2rem;
+  background: transparent !important;
+}
+
+.about-values-content {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.about-values-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-values-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 1rem;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.value-card {
+  background: white;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: 1.4rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid #d4af37;
+  position: relative;
+  overflow: hidden;
+}
+
+.value-card:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: var(--shadow-xl);
+}
+
+.value-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+}
+
+.value-icon {
+  width: 4rem;
+  height: 4rem;
+  background: #d4af37;
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.value-card:hover .value-icon {
+  transform: scale(1.1);
+}
+
+.value-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.value-description {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Journey Section */
+.milestone-year {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #d4af37;
+  height: 50px;
+  width: 50px;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 600;
+  font-size: 0.9rem;
+  z-index: 2;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+}
+
+
+.milestone-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.milestone-description {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Responsive Design for Journey */
+@media (max-width: 768px) {
+  
+  
+  .milestone-year {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .milestone-title {
+    font-size: 1.1rem;
+  }
+  
+  .milestone-description {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .milestone-card {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+    padding: 1rem 1.25rem;
+  }
+  
+  .milestone-year {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+  }
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-title {
+    font-size: 2rem;
+  }
+  
+  .about-subtitle {
+    font-size: 1.125rem;
+  }
+  
+  .about-story-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .about-story-title {
+    font-size: 2rem;
+  }
+  
+  .about-story-description {
+    font-size: 1rem;
+  }
+  
+  .milestones-timeline::before {
+    left: 2rem;
+  }
+  
+  .milestone-item {
+    flex-direction: column !important;
+    align-items: flex-start;
+    padding-left: 4rem;
+  }
+  
+  .milestone-year {
+    left: 2rem;
+    transform: translate(-50%, -50%);
+  }
+  
+  .milestone-content {
+    margin: 0 !important;
+  }
+  
+  .about-milestones-title,
+  .about-team-title,
+  .about-values-title {
+    font-size: 2rem;
+  }
+  
+  .about-milestones-subtitle,
+  .about-team-subtitle,
+  .about-values-subtitle {
+    font-size: 1.125rem;
+  }
+  
+  .team-grid,
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

@@ -1,0 +1,432 @@
+/* Features Page Styles - Exact match to image */
+
+/* Remove any gaps between sections */
+body, html {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.homepage {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.hero-section {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.features-section {
+  margin-top: 10px !important;
+  padding: 0 !important;
+  position: relative;
+  top: 0;
+  border-radius: 20px !important;
+  overflow: hidden;
+}
+
+.features-header {
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative;
+  top: 0;
+}
+
+/* CSS Reset to prevent base CSS conflicts */
+.feature-card,
+.feature-card *,
+.feature-card::before,
+.feature-card::after {
+  background-image: none !important;
+  background-gradient: none !important;
+}
+
+/* Override any CSS variables that might cause orange color */
+.feature-card {
+  --primary-color: #d4af37 !important;
+  --secondary-color: #d4af37 !important;
+  --accent-color: #d4af37 !important;
+}
+
+.features-header {
+  background: linear-gradient(135deg, var(--beige-50) 0%, var(--beige-100) 50%, var(--beige-200) 100%);
+  min-height: 90vh;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  top: 0;
+  border-radius: 20px !important;
+}
+
+.features-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.12) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.features-container {
+  max-width: 1500px;
+  margin: 30px 20px;
+  margin-bottom: 50px;
+  padding: 0px 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.features-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.features-title .highlight {
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  position: relative;
+}
+
+.features-title .highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  border-radius: 2px;
+}
+
+.features-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 6rem;
+  margin-top: 3rem;
+}
+
+/* Feature card - larger size */
+.feature-card {
+  background: white !important;
+  background-image: none !important;
+  background-color: white !important;
+  border-radius: 20px;
+  padding: 3rem 2.5rem;
+  box-shadow: 
+    0 6px 30px rgba(45, 34, 23, 0.1),
+    0 4px 12px rgba(45, 34, 23, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 400px;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent-gold);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 16px 16px 0 0;
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+.feature-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 
+    0 30px 80px rgba(45, 34, 23, 0.12),
+    0 12px 40px rgba(45, 34, 23, 0.08);
+  border-color: rgba(212, 175, 55, 0.2);
+}
+
+/* Icon box - larger size with perfect centering */
+.icon-box {
+  width: 80px;
+  height: 80px;
+  background: #d4af37 !important;
+  background-image: none !important;
+  background-color: #d4af37 !important;
+  border-radius: 16px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2);
+  flex-shrink: 0;
+}
+
+.icon-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: none !important;
+  background-image: none !important;
+  border-radius: 12px;
+}
+
+.feature-card:hover .icon-box {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+}
+
+/* Icon styling - larger size with perfect centering */
+.feature-icon {
+  font-size: 3rem !important;
+  width: 3rem !important;
+  height: 3rem !important;
+  color: rgb(255, 255, 255) !important;
+  z-index: 1;
+  position: relative;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Typography - larger font sizes */
+.feature-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.feature-description {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+/* Feature list - left aligned as in image */
+.feature-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.feature-details li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Golden checkmarks - exact from image */
+.feature-details li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  background: #d4af37 !important;
+  background-image: none !important;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.feature-details li:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .features-header {
+    padding: 60px 0;
+  }
+  
+  .features-container {
+    padding: 0 15px;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .feature-card {
+    padding: 2.5rem 2rem;
+    min-height: 350px;
+  }
+  
+  .features-title {
+    margin-bottom: 1rem;
+  }
+  
+  .features-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+  }
+  
+  .icon-box {
+    width: 70px;
+    height: 70px;
+    border-radius: 14px;
+  }
+  
+  .feature-icon {
+    font-size: 2.5rem !important;
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+  }
+  
+  .feature-title {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .feature-card {
+    padding: 2rem 1.5rem;
+    min-height: 300px;
+  }
+  
+  .icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+  }
+  
+  .feature-icon {
+    font-size: 2.2rem !important;
+    width: 2.2rem !important;
+    height: 2.2rem !important;
+  }
+}
+
+/* Animation for scroll-triggered effects */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feature-card {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.feature-card:nth-child(1) { animation-delay: 0.1s; }
+.feature-card:nth-child(2) { animation-delay: 0.2s; }
+.feature-card:nth-child(3) { animation-delay: 0.3s; }
+.feature-card:nth-child(4) { animation-delay: 0.4s; }
+.feature-card:nth-child(5) { animation-delay: 0.5s; }
+.feature-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Force override any conflicting styles */
+.icon-box,
+.icon-box::before {
+  background: #d4af37 !important;
+  background-image: none !important;
+  background-color: #d4af37 !important;
+}
+
+.feature-icon,
+.feature-icon svg {
+  font-size: 3rem !important;
+  width: 3rem !important;
+  height: 3rem !important;
+  color: rgb(255, 255, 255) !important;
+}
+
+/* Force remove any orange/gradient backgrounds */
+.feature-card,
+.feature-card *,
+.feature-card::before,
+.feature-card::after {
+  background-image: none !important;
+}
+
+/* Force golden color for all icon elements */
+.icon-box,
+.icon-box::before,
+.icon-box::after,
+.feature-card .icon-box,
+.feature-card .icon-box::before,
+.feature-card .icon-box::after {
+  background: #d4af37 !important;
+  background-color: #d4af37 !important;
+  background-image: none !important;
+  background-gradient: none !important;
+}
+
+/* Ensure icon is white and icon box is golden */
+.feature-card .icon-box {
+  background: #d4af37 !important;
+  background-color: #d4af37 !important;
+}
+
+.feature-card .icon-box .feature-icon {
+  color: white !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Force remove any gradients */
+.feature-card,
+.feature-card * {
+  background: white !important;
+  background-image: none !important;
+  background-gradient: none !important;
+}
