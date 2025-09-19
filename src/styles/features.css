@@ -38,7 +38,6 @@ body, html {
 .feature-card::before,
 .feature-card::after {
   background-image: none !important;
-  background-gradient: none !important;
 }
 
 /* Override any CSS variables that might cause orange color */
@@ -74,11 +73,15 @@ body, html {
 
 .features-container {
   max-width: 1500px;
-  margin: 30px 20px;
+  margin: 30px auto;
   margin-bottom: 50px;
-  padding: 0px 10px;
+  padding: 0px 20px;
   position: relative;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .features-title {
@@ -116,7 +119,6 @@ body, html {
   font-size: 1.25rem;
   color: var(--text-secondary);
   text-align: center;
-  margin-bottom: 4rem;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
@@ -126,12 +128,16 @@ body, html {
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 6rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
   margin-top: 3rem;
+  width: 100%;
+  max-width: 1600px;
+  justify-items: center;
+  align-items: start;
 }
 
-/* Feature card - larger size */
+/* Feature card - uniform size */
 .feature-card {
   background: white !important;
   background-image: none !important;
@@ -149,7 +155,10 @@ body, html {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  min-height: 400px;
+  height: 450px;
+  width: 100%;
+  max-width: 420px;
+  justify-content: space-between;
 }
 
 .feature-card::before {
@@ -238,7 +247,8 @@ body, html {
   font-size: 1.1rem;
   color: var(--text-secondary);
   line-height: 1.5;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  flex-shrink: 0;
 }
 
 /* Feature list - left aligned as in image */
@@ -248,6 +258,10 @@ body, html {
   margin: 0;
   text-align: left;
   width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .feature-details li {
@@ -283,6 +297,44 @@ body, html {
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+  .features-container {
+    padding: 0 20px;
+    margin: 25px auto;
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1400px;
+    justify-items: center;
+  }
+  
+  .feature-card {
+    max-width: 400px;
+    height: 480px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .features-container {
+    padding: 0 20px;
+    margin: 25px auto;
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    justify-items: center;
+  }
+  
+  .feature-card {
+    max-width: 450px;
+    height: 450px;
+  }
+}
+
 @media (max-width: 768px) {
   .features-header {
     padding: 60px 0;
@@ -290,16 +342,24 @@ body, html {
   
   .features-container {
     padding: 0 15px;
+    margin: 20px auto;
+    text-align: center;
   }
   
   .features-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    justify-items: center;
   }
   
   .feature-card {
     padding: 2.5rem 2rem;
-    min-height: 350px;
+    height: 420px;
+    width: 100%;
+    max-width: 500px;
   }
   
   .features-title {
@@ -329,13 +389,24 @@ body, html {
 }
 
 @media (max-width: 480px) {
+  .features-container {
+    padding: 0 10px;
+    margin: 15px auto;
+  }
+  
   .features-grid {
     grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+    justify-items: center;
   }
   
   .feature-card {
     padding: 2rem 1.5rem;
-    min-height: 300px;
+    height: 380px;
+    width: 100%;
+    max-width: 450px;
   }
   
   .icon-box {
@@ -408,7 +479,6 @@ body, html {
   background: #d4af37 !important;
   background-color: #d4af37 !important;
   background-image: none !important;
-  background-gradient: none !important;
 }
 
 /* Ensure icon is white and icon box is golden */
@@ -428,5 +498,4 @@ body, html {
 .feature-card * {
   background: white !important;
   background-image: none !important;
-  background-gradient: none !important;
 }

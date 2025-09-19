@@ -189,19 +189,7 @@ const FAQPage = () => {
                 </a>
               </div>
               
-              <div className="faq-contact-card">
-                <div className="faq-contact-icon">
-                  <MessageCircle className="w-8 h-8" />
-                </div>
-                <h3 className="faq-contact-title-card">Live Chat</h3>
-                <p className="faq-contact-description">
-                  Get instant support through our live chat feature during business hours.
-                </p>
-                <a href="#" className="faq-contact-button">
-                  <MessageCircle className="w-4 h-4" />
-                  Start Chat
-                </a>
-              </div>
+              
             </motion.div>
           </motion.div>
         </div>
