@@ -1,5 +1,3 @@
-/* Features Page Styles - Exact match to image */
-
 /* Remove any gaps between sections */
 body, html {
   margin: 0 !important;
@@ -96,7 +94,8 @@ body, html {
 }
 
 .features-title .highlight {
-  background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+  /* background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark)); */
+  background: #B38A51;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

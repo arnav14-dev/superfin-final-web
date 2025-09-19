@@ -9,7 +9,6 @@
   overflow: visible;
 }
 .faq-hero {
-  /* background: linear-gradient(135deg, var(--background-beige) 0%, #fed7aa 50%, #fbbf24 100%); */
   padding: 6rem 0 4rem;
   position: relative;
   overflow: hidden;
@@ -22,7 +21,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  /* background: radial-gradient(circle at 25px 25px, rgba(255, 255, 255, 0.1) 2px, transparent 0); */
   background-size: 50px 50px;
   opacity: 0.1;
 }
@@ -45,7 +43,6 @@
 }
 
 .faq-title .gradient-text {
-  /* background: linear-gradient(to right, var(--primary-color), var(--secondary-color)); */
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;

@@ -22,22 +22,22 @@ const ProductSeries = {
   "GR8 Series": {
     id: "1",
     description:
-      "The GR8 Series offers cutting-edge smart home solutions designed for modern living. Experience seamless control and unparalleled convenience with our innovative products, blending aesthetics with functionality for the ultimate smart home experience.",
+      `The GR8 Series is our premium modular series, crafted for modern living.It combines reliable performance with a neat modular design.Built to last and easy to use, it’s a switch you can trust every day.`,
     brochureLink: "/assets/gr8 list final.pdf",
     cards: [
       {
         id: "gr8-card1",
         title: "Advanced Connectivity",
         description:
-          "Seamless integration with all major smart home platforms and voice assistants.",
+          "Available in 10 variety of switches and five different varieties of plates.",
         image: '/assets/GR8_1.png',
         cardType: "gradient",
       },
       {
         id: "gr8-card2",
-        title: "Intuitive Control",
+        title: "Premium Modular Switches",
         description:
-          "User-friendly interface designed for effortless daily interaction.",
+          "Switches That Match Your Style.",
         image: '/assets/GR8_2.png',
         cardType: "minimal",
       },
@@ -46,22 +46,22 @@ const ProductSeries = {
   "Fix Series": {
     id: "2",
     description:
-      "The Fix Series provides reliable and straightforward solutions for essential home automation needs. Designed for durability and ease of use, it ensures a stable and efficient smart home experience without compromising on quality.",
+      "The FIX Series is a modular series made for simple, everyday use.It offers sturdy build quality with a straightforward design.Reliable, practical, and long-lasting — switches that make daily life easier.",
     brochureLink: "/assets/FIX P LIST 2024.pdf",
     cards: [
       {
         id: "fix-card1",
         title: "Reliable Performance",
         description:
-          "Consistent operation with industry-leading uptime and stability.",
+          "Available in 12+ variety of switches and 10 different varieties of plates.",
         image: '/assets/FIX_1.png',
         cardType: "glass",
       },
       {
         id: "fix-card2",
-        title: "Easy Installation",
+        title: "Modular switches",
         description:
-          "Quick setup process that gets you up and running in minutes.",
+          "Durable. Practical. Affordable.",
         image: '/assets/FIX_2.png',
         cardType: "bordered",
       },
@@ -70,7 +70,7 @@ const ProductSeries = {
   "Classic Series": {
     id: "3",
     description:
-      "Embrace timeless elegance with the Classic Series. Offering extensive customization options, these products seamlessly integrate into any decor while providing smart functionality that complements traditional and modern aesthetics.",
+      "Classic Series is fully customizable range, this series lets you choose from 5 colors, 2 to 18 modules, and your own icons. Available in glass or acrylic with matte or glossy finishes, it’s made to perfectly match your style and space.",
     brochureLink: "/assets/Classic Series catalogue.pdf",
     cards: [
       {
@@ -118,7 +118,7 @@ const ProductSeries = {
   "Uniq Series": {
     id: "4",
     description:
-      "The Uniq Series stands out with its modern design and integrated technology. Featuring toughened glass panels and inbuilt Wi-Fi, it offers a sophisticated and connected experience for the modern smart home enthusiast.",
+      "Uniq series is available in 2, 4, 6, and 8 modules, this series comes in sleek black and white with 30+ variants. Its toughened glass panel is anti-fingerprint for a clean look, while the inbuilt Wi-Fi chip and master control make your home truly smart.",
     brochureLink: "/assets/uniq series.pdf",
     cards: [
       {
@@ -145,20 +145,12 @@ const ProductSeries = {
         image: "/assets/uniq3.png",
         cardType: "glass",
       },
-      {
-        id: "uniq-card4",
-        title: "Smart Scene",
-        description:
-          "Trigger on/off by temperature, humidity or other environmental conditions.",
-        image: "/assets/uniq4.png",
-        cardType: "bordered",
-      },
     ],
   },
   "Nano Series": {
     id: "5",
     description:
-      "Compact yet powerful, the Nano Series is designed for safety and simplicity. With features like child lock and shock proofing, it provides peace of mind and easy installation for families and safety-conscious users.",
+      "The Nano Series fits right into your modular plate with easy retrofit wiring. Its inbuilt Wi-Fi makes your home smarter, and with eight variants, there’s one for every style.",
     brochureLink: "/assets/Nano series .pdf",
     cards: [
       {
@@ -198,7 +190,7 @@ const ProductSeries = {
   "Nova Series": {
     id: "6",
     description:
-      "The Nova combines traditional aesthetics with modern smart technology. Customize your panels with various border and panel colors for a truly unique look that enhances any interior space.",
+      "Nova series is available in 2–12 modules with custom icons, 2 panel and 3 bezel colors. Metal base & border, 2.5D curved glass, 16A load with 2.5KV overload protection, and 50+ variants.",
     brochureLink: "/assets/Nova Series.pdf",
     cards: [
       {
@@ -222,7 +214,7 @@ const ProductSeries = {
         title: "2.5D Curved Toughened Glass Panel",
         description:
           "Stylish and durable glass design with a premium finish.",
-        image: "/assets/NOVA3.png",
+        image: "/assets/NOVA_3.png",
         cardType: "gradient",
       },
     ],
