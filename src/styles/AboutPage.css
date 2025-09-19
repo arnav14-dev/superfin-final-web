@@ -454,7 +454,74 @@
 
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .milestones-timeline::before {
+    left: 0;
+  }
+  
+  .milestone-item {
+    flex-direction: column !important;
+    align-items: flex-start;
+    padding-left: 0;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  
+  .milestone-item:nth-child(odd) .milestone-content {
+    transform: none;
+    margin-left: 0;
+  }
+  
+  .milestone-item:nth-child(even) .milestone-content {
+    transform: none;
+    margin-right: 0;
+  }
+  
+  .milestone-year {
+    position: static !important;
+    transform: none !important;
+    background: none !important;
+    color: var(--primary-color) !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    padding: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .milestone-content {
+    margin: 0 !important;
+    width: 100% !important;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-left: 3px solid var(--primary-color);
+    padding: 1rem;
+  }
+  
+  .milestone-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+  
+  .milestone-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+}
+
 @media (max-width: 768px) {
+  .about-page {
+    margin: 10px !important;
+    padding: 30px 15px !important;
+  }
+  
   .about-title {
     font-size: 2rem;
   }
@@ -474,25 +541,33 @@
   
   .about-story-description {
     font-size: 1rem;
+    max-width: 100%;
+    margin-right: 0;
   }
   
-  .milestones-timeline::before {
-    left: 2rem;
+  .storycontent {
+    flex-direction: column;
+    gap: 1.5rem;
   }
   
-  .milestone-item {
-    flex-direction: column !important;
-    align-items: flex-start;
-    padding-left: 4rem;
+  .about-story-features {
+    width: 100%;
   }
   
   .milestone-year {
-    left: 2rem;
-    transform: translate(-50%, -50%);
+    font-size: 1rem !important;
   }
   
   .milestone-content {
-    margin: 0 !important;
+    padding: 0.75rem;
+  }
+  
+  .milestone-title {
+    font-size: 1rem;
+  }
+  
+  .milestone-description {
+    font-size: 0.85rem;
   }
   
   .about-milestones-title,
@@ -511,5 +586,170 @@
   .values-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-page {
+    margin: 5px !important;
+    padding: 20px 10px !important;
+  }
+  
+  .about-title {
+    font-size: 1.75rem;
+  }
+  
+  .about-subtitle {
+    font-size: 1rem;
+  }
+  
+  .about-story-title {
+    font-size: 1.75rem;
+  }
+  
+  .about-story-description {
+    font-size: 0.9rem;
+  }
+  
+  .about-milestones-title,
+  .about-values-title {
+    font-size: 1.75rem;
+  }
+  
+  .about-milestones-subtitle,
+  .about-values-subtitle {
+    font-size: 1rem;
+  }
+  
+  .milestones-timeline::before {
+    left: 1.5rem;
+  }
+  
+  .milestone-item {
+    padding-left: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .milestone-year {
+    left: 1.5rem;
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
+  
+  .milestone-content {
+    padding: 0.75rem;
+    margin-left: 0.5rem !important;
+    width: calc(100% - 4rem);
+  }
+  
+  .milestone-title {
+    font-size: 1rem;
+  }
+  
+  .milestone-description {
+    font-size: 0.85rem;
+  }
+  
+  .value-card {
+    padding: 1.25rem;
+  }
+  
+  .about-story-feature {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-title {
+    font-size: 1.5rem;
+  }
+  
+  .about-story-title {
+    font-size: 1.5rem;
+  }
+  
+  .about-milestones-title,
+  .about-values-title {
+    font-size: 1.5rem;
+  }
+  
+  .milestones-timeline::before {
+    left: 0;
+  }
+  
+  .milestone-item {
+    padding-left: 0;
+    margin-bottom: 1rem;
+    flex-direction: column !important;
+    align-items: flex-start;
+  }
+  
+  .milestone-year {
+    position: static !important;
+    transform: none !important;
+    background: none !important;
+    color: var(--primary-color) !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    padding: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .milestone-content {
+    padding: 0.75rem;
+    margin: 0 !important;
+    width: 100% !important;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-left: 3px solid var(--primary-color);
+  }
+  
+  .milestone-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+  
+  .milestone-description {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+  
+  .value-card {
+    padding: 1rem;
+  }
+  
+  .about-story-feature {
+    padding: 0.5rem;
+  }
+  
+  .about-story-feature-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+/* Extra small devices (320px and up) */
+@media (max-width: 375px) {
+  .milestone-year {
+    font-size: 0.9rem !important;
+  }
+  
+  .milestone-content {
+    padding: 0.5rem;
+  }
+  
+  .milestone-title {
+    font-size: 0.9rem;
+  }
+  
+  .milestone-description {
+    font-size: 0.8rem;
   }
 }

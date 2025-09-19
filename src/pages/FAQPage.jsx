@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   HelpCircle,
@@ -52,6 +52,10 @@ const FAQPage = () => {
       transition: { duration: 0.6 }
     }
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="faq-page">

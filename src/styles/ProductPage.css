@@ -404,13 +404,14 @@
   
   .product-page-container {
     flex-direction: column;
-    gap: 30px;
+    gap: 25px;
   }
   
   .product-page-sidebar {
     flex: none;
     position: static;
     top: auto;
+    padding: 25px 20px;
   }
   
   .product-page-series-buttons {
@@ -423,6 +424,8 @@
     flex: 1;
     min-width: 140px;
     text-align: center;
+    padding: 14px 16px;
+    font-size: 0.9rem;
   }
   
   .product-page-main-card {
@@ -431,7 +434,7 @@
   }
   
   .product-page-main-card-details {
-    padding: 35px 30px;
+    padding: 30px 25px;
   }
   
   .product-page-section-title {
@@ -513,6 +516,15 @@
 }
 
 @media (max-width: 480px) {
+  .product-page-sidebar {
+    padding: 20px 15px;
+  }
+  
+  .product-page-series-btn {
+    padding: 12px 14px;
+    font-size: 0.85rem;
+  }
+  
   .product-page-main-card-details {
     padding: 20px 15px;
   }
@@ -521,22 +533,34 @@
     font-size: 1.6rem;
   }
   
+  .product-page-description {
+    font-size: 0.95rem;
+  }
+  
   .product-page-download-brochure {
-    padding: 14px 24px;
-    font-size: 0.9rem;
+    padding: 12px 20px;
+    font-size: 0.85rem;
+  }
+  
+  .product-page-cards-section {
+    padding: 25px 15px;
+  }
+  
+  .product-page-cards-title {
+    font-size: 1.6rem;
   }
   
   .product-page-card-image-container {
-    height: 180px;
+    height: 160px;
   }
   
   .product-page-card-content {
-    padding: 18px;
+    padding: 15px;
   }
   
   .product-page-card-title {
     font-size: 1.1rem;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
   
   .product-page-card-description {

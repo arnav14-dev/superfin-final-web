@@ -175,6 +175,19 @@ const Navbar = () => {
               </div>
             ))}
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="navbar-mobile-button"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle mobile menu"
+          >
+            <div className="hamburger-icon">
+              <span className={`hamburger-line ${isOpen ? 'open' : ''}`}></span>
+              <span className={`hamburger-line ${isOpen ? 'open' : ''}`}></span>
+              <span className={`hamburger-line ${isOpen ? 'open' : ''}`}></span>
+            </div>
+          </button>
         </div>
 
         {/* Mobile Navigation */}

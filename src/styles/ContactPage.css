@@ -296,6 +296,11 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .contact-page {
+    margin: 10px !important;
+    padding: 20px 15px !important;
+  }
+  
   .contact-title {
     font-size: 2rem;
   }
@@ -309,26 +314,12 @@
     gap: 1rem;
   }
   
-  .contact-container {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .contact-form {
+  .contact-method-card {
     padding: 1.5rem;
   }
   
-  .contact-info-card,
   .contact-schedule {
     padding: 1.5rem;
-  }
-  
-  .contact-map-title {
-    font-size: 2rem;
-  }
-  
-  .contact-map-subtitle {
-    font-size: 1.125rem;
   }
   
   .contact-cta-title {
@@ -348,5 +339,72 @@
     width: 100%;
     max-width: 300px;
     justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-page {
+    margin: 5px !important;
+    padding: 15px 10px !important;
+  }
+  
+  .contact-title {
+    font-size: 1.75rem;
+  }
+  
+  .contact-subtitle {
+    font-size: 1rem;
+  }
+  
+  .contact-method-card {
+    padding: 1.25rem;
+  }
+  
+  .contact-schedule {
+    padding: 1.25rem;
+  }
+  
+  .contact-cta-title {
+    font-size: 1.75rem;
+  }
+  
+  .contact-cta-subtitle {
+    font-size: 1rem;
+  }
+  
+  .contact-cta-button {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-title {
+    font-size: 1.5rem;
+  }
+  
+  .contact-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .contact-method-card {
+    padding: 1rem;
+  }
+  
+  .contact-schedule {
+    padding: 1rem;
+  }
+  
+  .contact-cta-title {
+    font-size: 1.5rem;
+  }
+  
+  .contact-cta-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .contact-cta-button {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
   }
 }

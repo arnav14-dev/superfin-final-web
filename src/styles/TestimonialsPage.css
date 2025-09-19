@@ -196,6 +196,10 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .testimonials-section {
+    margin: 10px !important;
+    padding: 20px 15px !important;
+  }
   
   .testimonials-title {
     font-size: 2rem;
@@ -231,6 +235,75 @@
     width: 100%;
     max-width: 300px;
     justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .testimonials-section {
+    margin: 5px !important;
+    padding: 15px 10px !important;
+  }
+  
+  .testimonials-title {
+    font-size: 1.75rem;
+  }
+  
+  .testimonials-subtitle {
+    font-size: 1rem;
+  }
+  
+  .testimonial-card {
+    padding: 1.25rem;
+  }
+  
+  .testimonial-quote {
+    font-size: 2.5rem;
+    top: 0.75rem;
+    left: 1rem;
+  }
+  
+  .testimonial-text {
+    font-size: 0.9rem;
+  }
+  
+  .testimonial-avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonials-title {
+    font-size: 1.5rem;
+  }
+  
+  .testimonials-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .testimonial-card {
+    padding: 1rem;
+  }
+  
+  .testimonial-quote {
+    font-size: 2rem;
+    top: 0.5rem;
+    left: 0.75rem;
+  }
+  
+  .testimonial-text {
+    font-size: 0.85rem;
+  }
+  
+  .testimonial-author {
+    gap: 0.75rem;
+  }
+  
+  .testimonial-avatar {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.875rem;
   }
 }
 
