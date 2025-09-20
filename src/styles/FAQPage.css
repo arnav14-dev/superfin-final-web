@@ -322,7 +322,7 @@
 .faq-contact-icon {
   width: 4rem;
   height: 4rem;
-  background: #d4af37;
+  background: #B38A51;
   border-radius: var(--radius-xl);
   display: flex;
   align-items: center;
@@ -348,7 +348,7 @@
 .faq-contact-button {
   width: 100%;
   padding: 0.75rem 1.5rem;
-  background: #d4af37;
+  background: #B38A51;
   color: white;
   border: none;
   border-radius: var(--radius-md);

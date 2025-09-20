@@ -124,12 +124,8 @@ const ContactPage = () => {
               
               <div className="contact-schedule-list">
                 <div className="contact-schedule-item">
-                  <span className="contact-schedule-day">Monday - Friday</span>
-                  <span className="contact-schedule-hours">9:00 AM - 6:00 PM</span>
-                </div>
-                <div className="contact-schedule-item">
-                  <span className="contact-schedule-day">Saturday</span>
-                  <span className="contact-schedule-hours">10:00 AM - 4:00 PM</span>
+                  <span className="contact-schedule-day">Monday - Saturday</span>
+                  <span className="contact-schedule-hours">10:00 AM - 7:00 PM</span>
                 </div>
                 <div className="contact-schedule-item">
                   <span className="contact-schedule-day">Sunday</span>

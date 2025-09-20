@@ -359,7 +359,7 @@
 .value-icon {
   width: 4rem;
   height: 4rem;
-  background: #d4af37;
+  background: #B38A51;
   border-radius: var(--radius-xl);
   display: flex;
   align-items: center;
@@ -391,7 +391,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  background: #d4af37;
+  background: #B38A51;
   height: 50px;
   width: 50px;
   color: white;

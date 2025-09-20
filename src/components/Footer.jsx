@@ -102,8 +102,7 @@ const Footer = () => {
               <div className="footer-contact-item">
                 <MapPin className="footer-contact-icon" />
                 <span>
-                  {companyInfo.address.city},<br />
-                  {companyInfo.address.state} {companyInfo.address.pincode}
+                  {companyInfo.address.city}<br />
                 </span>
               </div>
             </div>

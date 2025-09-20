@@ -40,9 +40,9 @@ body, html {
 
 /* Override any CSS variables that might cause orange color */
 .feature-card {
-  --primary-color: #d4af37 !important;
-  --secondary-color: #d4af37 !important;
-  --accent-color: #d4af37 !important;
+  --primary-color: #B38A51 !important;
+  --secondary-color: #B38A51 !important;
+  --accent-color: #B38A51 !important;
 }
 
 .features-header {
@@ -200,7 +200,7 @@ body, html {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 6px 20px rgba(179, 138, 81, 0.2);
   flex-shrink: 0;
 }
 
@@ -280,7 +280,7 @@ body, html {
   top: 0;
   width: 18px;
   height: 18px;
-  background: #d4af37 !important;
+  background: #B38A51 !important;
   background-image: none !important;
   color: white;
   border-radius: 50%;
@@ -475,15 +475,15 @@ body, html {
 .feature-card .icon-box,
 .feature-card .icon-box::before,
 .feature-card .icon-box::after {
-  background: #d4af37 !important;
-  background-color: #d4af37 !important;
+  background: #B38A51 !important;
+  background-color: #B38A51 !important;
   background-image: none !important;
 }
 
 /* Ensure icon is white and icon box is golden */
 .feature-card .icon-box {
-  background: #d4af37 !important;
-  background-color: #d4af37 !important;
+  background: #B38A51 !important;
+  background-color: #B38A51 !important;
 }
 
 .feature-card .icon-box .feature-icon {
