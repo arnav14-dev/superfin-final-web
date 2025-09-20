@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaHome } from "react-icons/fa";
+import { Home } from "lucide-react";
 import "../styles/ClockCard.css";
 
 const ClockCard = ({ activeMode, setActiveMode }) => {
@@ -62,14 +62,14 @@ const ClockCard = ({ activeMode, setActiveMode }) => {
           className={`mode-btn ${activeMode === "home" ? "active" : "hidden"}`}
           onClick={() => setActiveMode("home")}
         >
-          <FaHome size={16} />
+                <Home size={16} />
           <span>Home mode</span>
         </button>
         <button
           className={`mode-btn ${activeMode === "leave" ? "active" : "hidden"}`}
           onClick={() => setActiveMode("leave")}
         >
-          <FaHome size={16} />
+                <Home size={16} />
           <span>Leave mode</span>
         </button>
       </div>
