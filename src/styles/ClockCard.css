@@ -1,0 +1,264 @@
+/* Smart Clock Component - Modern Glass Card Style */
+
+.smart-clock {
+  position: absolute;
+  top: 27%;
+  left: 0.4%;
+  width: 12%;
+  min-height: 200px;
+  background: rgb(0, 0, 0);
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 10px solid rgba(32, 29, 29, 0.983);
+  color: white;
+  text-align: left;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 10;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Wall mounting effect */
+.smart-clock::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 12px;
+  background: linear-gradient(135deg, #404040, #2a2a2a);
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.smart-clock::after {
+  content: '';
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: #333;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* Clock Header Layout */
+.clock-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.temp-date {
+  font-size: 10px;
+  color: #e0e0e0;
+  margin-bottom: 4px;
+}
+
+.temp-date .dot {
+  color: #ffffff;
+  font-size: 13px;
+  /* vertical-align: middle; */
+  margin-right: 4px;
+}
+
+.temperature {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #1f2937;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(251, 191, 36, 0.3);
+  border: 1px solid rgba(251, 191, 36, 0.4);
+}
+
+.date {
+  color: #d1d5db;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.time {
+  max-height: 33px;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 12px 0 20px;
+  text-align: left;
+  overflow: hidden;
+  color: #ffffff;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.mode-btn {
+  color: rgb(11, 11, 11);
+  border: none;
+  border-radius: 10px;
+  padding: 5px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60px;
+  height: 50px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.mode-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.mode-btn.active {
+  background: rgb(255, 255, 255);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.mode-btn.hidden {
+  background: rgba(255, 255, 255, 0.496);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.mode-btn span {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Leave mode styling */
+.smart-clock.leave-mode {
+  background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.smart-clock.leave-mode .temperature {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #1f2937;
+  box-shadow: 0 2px 8px rgba(251, 191, 36, 0.4);
+}
+
+.smart-clock.leave-mode .date {
+  color: #9ca3af;
+}
+
+.smart-clock.leave-mode .time {
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.smart-clock.leave-mode .mode-btn {
+  background: rgba(255, 255, 255, 0.05);
+  color: #9ca3af;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.smart-clock.leave-mode .mode-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.smart-clock.leave-mode .mode-btn.active {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #1f2937;
+  border-color: transparent;
+  box-shadow: 0 4px 16px rgba(251, 191, 36, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1020px) {
+  .smart-clock {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    min-height: 160px;
+    padding: 12px;
+    border-width: 8px;
+    z-index: 10;
+  }
+  
+  .time {
+    font-size: 24px;
+    margin: 12px 0 16px;
+  }
+  
+  .temp-date {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+  
+  .mode-btn {
+    width: 65px;
+    height: 40px;
+    font-size: 10px;
+    padding: 6px 8px;
+  }
+  
+  .mode-btn span {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 768px) and (min-height: 780px) {
+  .smart-clock {
+    width: 200px;
+    min-height: 180px;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px;
+    border-width: 8px;
+    position: absolute;
+  }
+  
+  .time {
+    font-size: 28px;
+  }
+  
+  .temp-date {
+    font-size: 12px;
+  }
+  
+  .mode-btn {
+    width: 70px;
+    height: 45px;
+    font-size: 13px;
+  }
+  
+  .mode-btn span {
+    font-size: 13px;
+  }
+}
+
+
+/* Animation for clock appearance */
+@keyframes clockMount {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}

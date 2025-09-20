@@ -7,6 +7,9 @@
   background: linear-gradient(135deg, var(--beige-100) 0%, var(--beige-200) 50%, var(--beige-300) 100%) !important;
   box-shadow: 0 20px 60px rgba(45, 34, 23, 0.1), 0 8px 30px rgba(45, 34, 23, 0.05);
   min-height: 100vh;
+  position: relative;
+  z-index: 100;
+  transform: translateZ(100px);
 }
 
 .about-page::before {

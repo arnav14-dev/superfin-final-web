@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
@@ -21,6 +21,7 @@ import {
   faFingerprint,
 } from "@fortawesome/free-solid-svg-icons";
 import HorizontalScrollCarousel from '../components/HorizontalScrollCarousel';
+import ClockCard from '../components/ClockCard';
 import '../styles/HomePage.css';
 import '../styles/features.css';
 import TestimonialsPage from './TestimonialsPage';
@@ -28,6 +29,58 @@ import AboutPage from './AboutPage';
 import ContactPage from './ContactPage';
 
 const HomePage = () => {
+  const [activeMode, setActiveMode] = useState("home");
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  // Preload background images
+  useEffect(() => {
+    const preloadImages = () => {
+      const imageUrls = [
+        '/assets/landingpage.png',
+        '/assets/landinPadeDim.png'
+      ];
+
+      let loadedCount = 0;
+      const totalImages = imageUrls.length;
+
+      imageUrls.forEach(url => {
+        const img = new Image();
+        img.onload = () => {
+          loadedCount++;
+          if (loadedCount === totalImages) {
+            setImagesLoaded(true);
+          }
+        };
+        img.onerror = () => {
+          console.warn(`Failed to load image: ${url}`);
+          loadedCount++;
+          if (loadedCount === totalImages) {
+            setImagesLoaded(true);
+          }
+        };
+        img.src = url;
+      });
+    };
+
+    preloadImages();
+  }, []);
+
+  // Handle mode switching with smooth transition
+  const handleModeChange = (newMode) => {
+    if (newMode !== activeMode && imagesLoaded) {
+      setIsTransitioning(true);
+      
+      // Add a small delay to ensure smooth transition
+      setTimeout(() => {
+        setActiveMode(newMode);
+        setTimeout(() => {
+          setIsTransitioning(false);
+        }, 500); // Match CSS transition duration
+      }, 100);
+    }
+  };
+
   const features = [
     {
       icon: faMicrophone,
@@ -119,15 +172,15 @@ const HomePage = () => {
   return (
     <div className="homepage">
       {/* Hero Section */}
-      <section id="home" className="hero-section">
-        {/* Background Image */}
-        <div className="hero-background"></div>
-        
+      <section id="home" className={`hero-section ${activeMode === "leave" ? "leave-mode" : "home-mode"}`}>
         {/* Overlay for better text readability */}
         <div className="hero-overlay"></div>
         
         {/* Subtle pattern overlay */}
         <div className="hero-pattern"></div>
+        
+        {/* Smart Clock */}
+        <ClockCard activeMode={activeMode} setActiveMode={setActiveMode} />
         
         <div className="hero-content">
           <motion.div

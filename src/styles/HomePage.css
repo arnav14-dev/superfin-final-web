@@ -8,16 +8,40 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  z-index: 1;
+  isolation: isolate;
 }
 
-.hero-background {
-  position: absolute;
-  inset: 0;
+.hero-section.home-mode {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  background: url("../../public/assets/landingpage.png");
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  /* background-attachment: fixed; */
+  transition: all 0.5s ease-in-out;
+  will-change: background;
+}
+
+.hero-section.leave-mode {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url("../../public/assets/landinPadeDim.png");
+  overflow: hidden;
   background-repeat: no-repeat;
-  /* background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2016&q=80'); */
-  background-image: url('../../public/assets/landingpage.png');
+  background-size: cover;
+  background-position: center;
+  /* background-attachment: fixed; */
+  transition: all 0.5s ease-in-out;
+  will-change: background;
 }
 
 .hero-overlay {
@@ -45,6 +69,12 @@
   max-width: 80rem;
   margin: 0 auto;
   padding: 5rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 .hero-title {
@@ -53,6 +83,7 @@
   color: white;
   margin-bottom: 1.5rem;
   line-height: 1.1;
+  text-align: center;
 }
 
 .hero-title .gradient-text {
@@ -120,6 +151,10 @@
 .features-section {
   padding: 5rem 0;
   background: white;
+  position: relative;
+  z-index: 100;
+  transform: translateZ(100px);
+  isolation: isolate;
 }
 
 .features-container {
@@ -209,6 +244,9 @@
 .product-series-section {
   background: var(--background-light);
   padding: 5rem 0;
+  position: relative;
+  z-index: 100;
+  transform: translateZ(100px);
 }
 
 .product-series-container {
@@ -332,6 +370,38 @@
   box-shadow: var(--shadow-md);
 }
 /* Responsive Design */
+@media (max-width: 1020px) {
+  .hero-content {
+    padding: 3rem 1rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 120px;
+  }
+  
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.125rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-width: 320px;
+  }
+  
+  .hero-button {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+}
+
 @media (max-width: 1024px) {
   .hero-content {
     padding: 4rem 1rem;
@@ -349,6 +419,10 @@
 @media (max-width: 768px) {
   .hero-content {
     padding: 3rem 1rem;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
   }
   
   .hero-title {
@@ -363,6 +437,7 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    max-width: 300px;
   }
   
   .hero-button {
@@ -446,24 +521,69 @@
 }
 
 @media (max-width: 480px) {
+  .hero-section {
+    min-height: 100vh;
+    padding: 1rem 0;
+  }
+  
+  .hero-content {
+    padding: 2rem 1rem;
+    min-height: 100vh;
+    justify-content: center;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  
   .hero-title {
-    font-size: 1.75rem;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
   }
   
   .hero-subtitle {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 280px;
   }
   
   .hero-button {
-    padding: 0.75rem 1.25rem;
-    font-size: 0.9rem;
+    padding: 1rem 2rem;
+    font-size: 0.95rem;
+    width: 100%;
+    min-height: 50px;
   }
   
   .features-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+  }
+  
+  .features-subtitle {
+    font-size: 1rem;
+    padding: 0 1rem;
   }
   
   .feature-card {
     padding: 1rem;
+  }
+}
+
+
+
+@media (max-width: 1020px) {
+  .hero-section.home-mode{
+    background-attachment: fixed;
+  }
+
+  .hero-section.leave-mode{
+    background-attachment: fixed;
   }
 }
