@@ -192,6 +192,13 @@ const HomePage = () => {
     <div className="homepage">
       {/* Hero Section */}
       <section id="home" className={`hero-section ${activeMode === "leave" ? "leave-mode" : "home-mode"} ${!imagesLoaded ? 'loading' : ''}`}>
+        {/* Fixed Background Image */}
+        <img 
+          className={`fixed-background-img ${activeMode === "leave" ? "leave-mode" : "home-mode"}`}
+          src={activeMode === "leave" ? "/assets/landinPadeDim_optimized.jpg" : "/assets/landingpage_optimized.jpg"}
+          alt="Background"
+        />
+        
         {/* Loading Overlay */}
         {!imagesLoaded && (
           <div className="loading-overlay">

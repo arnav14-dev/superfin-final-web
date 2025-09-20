@@ -7,9 +7,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  /* Removed overflow: hidden and isolation: isolate to fix background-attachment: fixed */
   z-index: 1;
-  isolation: isolate;
 }
 
 /* Loading states */
@@ -75,20 +74,29 @@
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-  background: url("../../public/assets/landingpage_optimized.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: scroll;
   transition: all 0.5s ease-in-out;
-  will-change: background;
+  /* Brightness enhancement to match original bright image */
+  filter: brightness(1.1) contrast(1.05) saturate(1.02);
+}
+
+/* Fixed background img element */
+.fixed-background-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
   /* Image loading optimization */
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
   backface-visibility: hidden;
-  transform: translateZ(0);
-  /* Brightness enhancement to match original bright image */
-  filter: brightness(1.1) contrast(1.05) saturate(1.02);
+  /* Ensure it covers the entire viewport and stays fixed */
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  -webkit-transform: translate3d(0, 0, 0);
 }
 
 .hero-section.leave-mode {
@@ -97,19 +105,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: url("../../public/assets/landinPadeDim_optimized.jpg");
   overflow: hidden;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: scroll;
   transition: all 0.5s ease-in-out;
-  will-change: background;
-  /* Image loading optimization */
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-  backface-visibility: hidden;
-  transform: translateZ(0);
   /* Dimmed but still bright for leave mode */
   filter: brightness(0.7) contrast(0.9) saturate(0.8);
 }
@@ -445,12 +442,7 @@
     text-align: center;
     margin-top: 120px;
   }
-  .hero-section.home-mode{
-    background-attachment: fixed;
-  }
-  .hero-section.leave-mode{
-    background-attachment: fixed;
-  }
+  
   
   .hero-title {
     font-size: 2.8rem;
@@ -658,13 +650,31 @@
   -webkit-transform: translateZ(0);
 }
 
-@media (max-width: 1020px) {
-  .hero-section.home-mode{
-    background-attachment: scroll;
+/* Mobile-specific fixed background */
+@media (max-width: 768px) {
+  .fixed-background-img {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: -1 !important;
+    transform: translate3d(0, 0, 0) !important;
+    will-change: transform;
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    object-fit: cover !important;
+    object-position: center !important;
   }
+}
 
-  .hero-section.leave-mode{
-    background-attachment: scroll;
+/* Scroll background only for very large desktop devices */
+@media (min-width: 1440px) {
+  .fixed-background-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }
 
