@@ -14,7 +14,7 @@
 
 /* Loading states */
 .hero-section.loading {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  background: linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 100%);
 }
 
 /* Loading Overlay */
@@ -87,6 +87,8 @@
   image-rendering: crisp-edges;
   backface-visibility: hidden;
   transform: translateZ(0);
+  /* Brightness enhancement to match original bright image */
+  filter: brightness(1.1) contrast(1.05) saturate(1.02);
 }
 
 .hero-section.leave-mode {
@@ -108,26 +110,22 @@
   image-rendering: crisp-edges;
   backface-visibility: hidden;
   transform: translateZ(0);
+  /* Dimmed but still bright for leave mode */
+  filter: brightness(0.7) contrast(0.9) saturate(0.8);
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3));
+  /* Removed dark overlay to keep image bright */
+  background: transparent;
 }
 
 .hero-pattern {
   position: absolute;
   inset: 0;
-  opacity: 0.1;
-}
-
-.hero-pattern::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle at 25px 25px, rgba(255, 255, 255, 0.1) 2px, transparent 0);
-  background-size: 50px 50px;
+  /* Removed pattern overlay to keep image bright */
+  display: none;
 }
 
 .hero-content {
@@ -150,6 +148,7 @@
   margin-bottom: 1.5rem;
   line-height: 1.1;
   text-align: center;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .hero-title .gradient-text {
@@ -162,12 +161,13 @@
 
 .hero-subtitle {
   font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
   margin-bottom: 2rem;
   max-width: 42rem;
   margin-left: auto;
   margin-right: auto;
   line-height: 1.6;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-buttons {
