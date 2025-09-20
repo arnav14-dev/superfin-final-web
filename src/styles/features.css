@@ -189,10 +189,10 @@ body, html {
 .icon-box {
   width: 80px;
   height: 80px;
-  background: #d4af37 !important;
+  background: #B38A51 !important;
   background-image: none !important;
-  background-color: #d4af37 !important;
-  border-radius: 16px;
+  background-color: #B38A51 !important;
+  border-radius: 20px;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -215,7 +215,7 @@ body, html {
 
 .feature-card:hover .icon-box {
   transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 8px 25px rgba(179, 138, 81, 0.3);
 }
 
 /* Icon styling - larger size with perfect centering */
@@ -447,9 +447,9 @@ body, html {
 /* Force override any conflicting styles */
 .icon-box,
 .icon-box::before {
-  background: #d4af37 !important;
+  background: #B38A51 !important;
   background-image: none !important;
-  background-color: #d4af37 !important;
+  background-color: #B38A51 !important;
 }
 
 .feature-icon,
