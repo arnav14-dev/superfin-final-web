@@ -33,37 +33,56 @@ const HomePage = () => {
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  // Preload background images
+  // Preload background images with optimization
   useEffect(() => {
     const preloadImages = () => {
       const imageUrls = [
-        '/assets/landingpage.png',
-        '/assets/landinPadeDim.png'
+        '/assets/landingpage_optimized.jpg',
+        '/assets/landinPadeDim_optimized.jpg'
       ];
 
       let loadedCount = 0;
       const totalImages = imageUrls.length;
 
-      imageUrls.forEach(url => {
-        const img = new Image();
-        img.onload = () => {
-          loadedCount++;
-          if (loadedCount === totalImages) {
-            setImagesLoaded(true);
-          }
-        };
-        img.onerror = () => {
-          console.warn(`Failed to load image: ${url}`);
-          loadedCount++;
-          if (loadedCount === totalImages) {
-            setImagesLoaded(true);
-          }
-        };
-        img.src = url;
+      // Use Promise.all for better performance
+      const loadPromises = imageUrls.map(url => {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          
+          // Optimize image loading
+          img.crossOrigin = 'anonymous';
+          img.loading = 'eager';
+          img.decoding = 'async';
+          img.fetchPriority = 'high';
+          
+          img.onload = () => {
+            loadedCount++;
+            resolve(img);
+          };
+          
+          img.onerror = () => {
+            console.warn(`Failed to load image: ${url}`);
+            loadedCount++;
+            reject(new Error(`Failed to load: ${url}`));
+          };
+          
+          // Set src after setting up event listeners
+          img.src = url;
+        });
+      });
+
+      Promise.allSettled(loadPromises).then(() => {
+        setImagesLoaded(true);
       });
     };
 
-    preloadImages();
+    // Start preloading immediately with high priority
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(preloadImages, { timeout: 1000 });
+    } else {
+      // Fallback for browsers without requestIdleCallback
+      setTimeout(preloadImages, 0);
+    }
   }, []);
 
   // Handle mode switching with smooth transition
@@ -172,7 +191,20 @@ const HomePage = () => {
   return (
     <div className="homepage">
       {/* Hero Section */}
-      <section id="home" className={`hero-section ${activeMode === "leave" ? "leave-mode" : "home-mode"}`}>
+      <section id="home" className={`hero-section ${activeMode === "leave" ? "leave-mode" : "home-mode"} ${!imagesLoaded ? 'loading' : ''}`}>
+        {/* Loading Overlay */}
+        {!imagesLoaded && (
+          <div className="loading-overlay">
+            <div className="loading-spinner"></div>
+            <p className="loading-text">Loading...</p>
+          </div>
+        )}
+        
+        {/* Transition Overlay */}
+        {isTransitioning && (
+          <div className="transition-overlay"></div>
+        )}
+        
         {/* Overlay for better text readability */}
         <div className="hero-overlay"></div>
         
