@@ -250,6 +250,47 @@
   }
 }
 
+/* iPhone specific adjustments */
+@media (max-width: 480px) {
+  .smart-clock {
+    width: 200px;
+    min-height: 160px;
+    padding: 12px;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    position: absolute;
+  }
+  
+  .time {
+    font-size: 24px;
+    margin: 12px 0 16px;
+  }
+  
+  .temp-date {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+  
+  .buttons {
+    gap: 8px;
+    justify-content: center;
+  }
+  
+  .mode-btn {
+    width: 75px;
+    height: 45px;
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+  
+  .mode-btn span {
+    font-size: 12px;
+    font-weight: 600;
+  }
+}
+
 
 /* Animation for clock appearance */
 @keyframes clockMount {
