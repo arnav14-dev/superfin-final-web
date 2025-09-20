@@ -9,7 +9,7 @@ import WhatsAppFloat from './components/WhatsAppFloat';
 
 // Pages
 import HomePage from './pages/HomePage';
-import FeaturesPage from './pages/FeaturesPage';
+// import FeaturesPage from './pages/FeaturesPage';
 import ProductPage from './pages/ProductPage';
 import TestimonialsPage from './pages/TestimonialsPage';
 import AboutPage from './pages/AboutPage';
@@ -31,10 +31,8 @@ function App() {
         >
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/features" element={<FeaturesPage />} />
             <Route path="/product/:seriesname" element={<ProductPage />} />
-            <Route path="/testimonials" element={<TestimonialsPage />} />
-            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
             <Route path="/faq" element={<FAQPage />} />
           </Routes>
         </motion.main>

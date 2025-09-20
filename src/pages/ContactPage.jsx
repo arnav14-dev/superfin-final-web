@@ -1,17 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import {
   Phone,
   Mail,
   MapPin,
-  Clock,
-  Send,
-  MessageCircle,
   ArrowRight
 } from 'lucide-react';
-import { Button } from '../components/ui/button';
-import { Input } from '../components/ui/input';
-import { Textarea } from '../components/ui/textarea';
 import { companyInfo } from '../data/products';
 import '../styles/ContactPage.css';
 
@@ -41,14 +35,14 @@ const ContactPage = () => {
       title: 'Call Us',
       description: 'Speak directly with our experts',
       action: 'Call Now',
-      href: `tel:${'+91 76667 93388'}`
+      href: `tel:${companyInfo.contact.phone}`
     },
     {
       icon: Mail,
       title: 'Email Us',
       description: 'Send us your requirements',
       action: 'Send Email',
-      href: `mailto:${'arnav14@somaiya.edu'}`
+      href: `mailto:${companyInfo.contact.email}`
     },
     {
       icon: MapPin,

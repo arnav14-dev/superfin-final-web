@@ -155,6 +155,6 @@ This project is proprietary and confidential.
 ## Contact
 
 For questions or support, please contact:
-- Email: info@superfinswitches.com
-- Phone: +91-9876543210
-- WhatsApp: +91-9876543210
+- Email: simonienterprises@yahoo.com
+- Phone: +91 76667 93388
+- WhatsApp: +91 76667 93388

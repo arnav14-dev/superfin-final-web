@@ -507,6 +507,20 @@ a:hover {
   z-index: 50;
 }
 
+@media (max-width: 640px) {
+  .whatsapp-container {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  .whatsapp-popup {
+    width: calc(100vw - 2rem);
+    max-width: 18rem;
+    right: 0;
+    left: auto;
+  }
+}
+
 .whatsapp-float-button {
   background: #25d366;
   color: white;

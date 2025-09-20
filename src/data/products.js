@@ -229,7 +229,6 @@ export const companyInfo = {
   name: 'SuperFin Electric Switches',
   founded: '2006',
   address: {
-    street: 'Ghatkopar',
     city: 'Mumbai',
     state: 'Maharashtra',
     pincode: '400084',
@@ -241,7 +240,7 @@ export const companyInfo = {
     whatsapp: '+91 76667 93388'
   },
   social: {
-    facebook: 'https://facebook.com/superfinswitches',
-    instagram: 'https://instagram.com/superfinswitches',
+    facebook: 'https://www.facebook.com/share/1Ee7YKaQM1/?mibextid=wwXIfr',
+    instagram: 'https://www.instagram.com/superfin_switches?igsh=YTl6NHB5d3ZtMmht&utm_source=qr',
   }
 };

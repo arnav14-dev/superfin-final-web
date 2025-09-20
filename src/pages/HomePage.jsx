@@ -183,7 +183,7 @@ const HomePage = () => {
               >
                 <span className="highlight">Smart Features</span>
                 <br />
-                That Transform Your Home
+                <span>That Transform Your Home</span>
               </motion.h1>
               
               <motion.p 

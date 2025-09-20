@@ -1,38 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import {
-  HelpCircle,
   Search,
   Phone,
   Mail,
-  MessageCircle,
   ArrowRight
 } from 'lucide-react';
-import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
-import { Card, CardContent } from '../components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
 import { faqs, companyInfo } from '../data/products';
 import '../styles/FAQPage.css';
 
 const FAQPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('all');
-
   const filteredFaqs = faqs.filter(faq => {
     const matchesSearch = faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          faq.answer.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === 'all' || faq.category === selectedCategory;
-    return matchesSearch && matchesCategory;
+    return matchesSearch;
   });
-
-  const categories = [
-    { id: 'all', name: 'All Questions' },
-    { id: 'products', name: 'Products' },
-    { id: 'installation', name: 'Installation' },
-    { id: 'support', name: 'Support' },
-    { id: 'shipping', name: 'Shipping' }
-  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -183,7 +168,7 @@ const FAQPage = () => {
                 <p className="faq-contact-description">
                   Send us your detailed questions and we'll respond within 24 hours.
                 </p>
-                <a href={`mailto:${companyInfo.email}`} className="faq-contact-button">
+                <a href={`mailto:${companyInfo.contact.email}`} className="faq-contact-button">
                   <Mail className="w-4 h-4" />
                   Send Email
                 </a>

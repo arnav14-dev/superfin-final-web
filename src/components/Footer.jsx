@@ -1,17 +1,12 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { 
   Phone, 
   Mail, 
   MapPin, 
   Facebook, 
-  Instagram, 
-  Linkedin, 
-  Youtube,
-  Download
+  Instagram
 } from 'lucide-react';
-import { Button } from './ui/button';
 import { companyInfo } from '../data/products';
 import '../styles/Footer.css';
 
@@ -82,10 +77,6 @@ const Footer = () => {
     }
   ];
 
-  const socialLinks = [
-    { icon: Facebook, href: companyInfo.social.facebook, label: 'Facebook' },
-    { icon: Instagram, href: companyInfo.social.instagram, label: 'Instagram' },
-  ];
 
   return (
     <footer className="footer-section">
@@ -97,7 +88,7 @@ const Footer = () => {
             <div onClick={()=>scrollToSection('home')} className="footer-logo">
             </div>
             <p className="footer-description">
-              {companyInfo.description}
+              Premium electric switches and smart home solutions for modern living.
             </p>
             <div className="footer-contact">
               <div className="footer-contact-item">
@@ -111,7 +102,7 @@ const Footer = () => {
               <div className="footer-contact-item">
                 <MapPin className="footer-contact-icon" />
                 <span>
-                  {companyInfo.address.street}, {companyInfo.address.city}<br />
+                  {companyInfo.address.city},<br />
                   {companyInfo.address.state} {companyInfo.address.pincode}
                 </span>
               </div>
