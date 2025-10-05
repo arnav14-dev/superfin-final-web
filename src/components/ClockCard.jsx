@@ -7,7 +7,7 @@ const ClockCard = ({ activeMode, setActiveMode }) => {
     new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: true })
   );
   const [date, setDate] = useState("");
-  const [temperature, setTemperature] = useState(null);
+  const [temperature, setTemperature] = useState(28);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -34,24 +34,10 @@ const ClockCard = ({ activeMode, setActiveMode }) => {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    const fetchTemperature = async () => {
-      const url = `http://api.weatherapi.com/v1/current.json?key=bf5f36e357894a258ba105112251107&q=India&aqi=yes`;
-      try {
-        const res = await fetch(url);
-        const data = await res.json();
-        setTemperature(data.current.temp_c.toFixed(0));
-      } catch (error) {
-        console.error("Failed to fetch weather:", error);
-      }
-    };
-    fetchTemperature();
-  }, []);
-
   return (
     <div className={`smart-clock glass-card ${activeMode === "leave" ? "leave-mode" : "home-mode"}`}>
       <div className="temp-date">
-        <span className="dot">{temperature ? `${temperature}°C` : "..."},</span>
+        <span className="dot">{temperature}°C,</span>
         <span className="date">{date}</span>
       </div>
       
