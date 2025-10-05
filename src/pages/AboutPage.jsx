@@ -150,7 +150,7 @@ const AboutPage = () => {
               className="about-story-description"
             >
               We are proud to introduce Simoni Enterprises ,established in 2006, we are a top manufacturer of smart touch and modular switches, known for reliability, aesthetics, and technology. 
-Based in Mumbai with a manufacturing unit in Vasai, we've completed over <span className='about-story-numbers'>50+</span> projects, partnered with <span className='about-story-numbers'>150+</span> dealers, and expanded to <span className='about-story-numbers'>100+</span> cities in <span className='about-story-numbers'>18+ years</span>. 
+Based in Mumbai with a manufacturing unit in Vasai, we've completed over <span className='about-story-numbers'>50+</span> projects, partnered with <span className='about-story-numbers'>150+</span> dealers, and expanded to <span className='about-story-numbers'>100+</span> cities in <span className='about-story-numbers'>20+ years</span>. 
 <br />
 We provide innovative solutions for residential, commercial, and hospitality sectors and have received <span className='about-story-numbers'>5+</span> awards for our commitment to quality and customer satisfaction.
             </motion.p>
@@ -164,7 +164,7 @@ We provide innovative solutions for residential, commercial, and hospitality sec
                   <Award className="w-6 h-6" />
                 </div>
                 <div className="about-story-feature-text">
-                  <div className="about-story-feature-title">18+ Years Experience</div>
+                  <div className="about-story-feature-title">20+ Years Experience</div>
                   <div className="about-story-feature-description">Decades of expertise in electrical solutions</div>
                 </div>
               </div>

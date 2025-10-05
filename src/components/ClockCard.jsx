@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Home } from "lucide-react";
+import { Fingerprint, Hand, HandIcon, HandMetalIcon, Home, LucideHand, MousePointer, MousePointerSquare, Pointer } from "lucide-react";
 import "../styles/ClockCard.css";
 
 const ClockCard = ({ activeMode, setActiveMode }) => {
@@ -61,6 +61,7 @@ const ClockCard = ({ activeMode, setActiveMode }) => {
         <button
           className={`mode-btn ${activeMode === "home" ? "active" : "hidden"}`}
           onClick={() => setActiveMode("home")}
+          title="Click to switch to Home mode"
         >
                 <Home size={16} />
           <span>Home mode</span>
@@ -68,10 +69,15 @@ const ClockCard = ({ activeMode, setActiveMode }) => {
         <button
           className={`mode-btn ${activeMode === "leave" ? "active" : "hidden"}`}
           onClick={() => setActiveMode("leave")}
+          title="Click to switch to Leave mode"
         >
                 <Home size={16} />
           <span>Leave mode</span>
         </button>
+      </div>
+      <div className="click-hint">
+        <span>Tap to switch</span>
+        <Pointer size={20} />
       </div>
     </div>
   );

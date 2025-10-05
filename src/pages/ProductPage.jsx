@@ -68,7 +68,7 @@ const ProductSeries = {
   "Classic Series": {
     id: "3",
     description:
-      "Classic Series is fully customizable range, this series lets you choose from 5 colors, 2 to 18 modules, and your own icons. Available in glass or acrylic with matte or glossy finishes, it’s made to perfectly match your style and space.",
+      "Classic Series is fully customizable range, this series lets you choose from 6 colors, 2 to 18 modules, and your own icons. Available in glass or acrylic with matte or glossy finishes, it’s made to perfectly match your style and space.",
     brochureLink: "/assets/Classic Series catalogue.pdf",
     cards: [
       {
@@ -196,7 +196,7 @@ const ProductSeries = {
         title: "Available in 2,4,6,8,12 Modules",
         description:
           "Flexible options to suit different installation requirements.",
-        image: "/assets/NOVA_1.png",
+        image: "/assets/nova1.png",
         cardType: "bordered",
       },
       {

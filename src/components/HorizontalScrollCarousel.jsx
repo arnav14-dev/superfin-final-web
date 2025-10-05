@@ -9,7 +9,6 @@ const HorizontalScrollCarousel = () => {
   const autoPlayRef = useRef(null);
   const navigate = useNavigate();
 
-  // Sample images - you can replace these with your own
   const slides = [
     {
       id: 0,
@@ -81,20 +80,24 @@ const HorizontalScrollCarousel = () => {
     const url = distance === 0 ? slides[index].src2 : slides[index].src;
 
     if (absDistance === 0) {
-      // Active slide (center)
+      // Active slide (center) - larger scale on mobile
+      const isMobile = window.innerWidth <= 768;
+      const scale = isMobile ? 1.5 : 1.3;
       return {
-        transform: `translateX(0px) translateZ(0px) rotateY(0deg) scale(1.3)`,
+        transform: `translateX(0px) translateZ(0px) rotateY(0deg) scale(${scale})`,
         opacity: 1,
         zIndex: 10,
         url,
       };
     } else if (absDistance === 1) {
       // Adjacent slides (immediate left/right)
+      const isMobile = window.innerWidth <= 768;
       const rotateY = distance > 0 ? 5 : -5;
       const translateZ = -120;
-      const translateX = distance > 0 ? 600 : -600;
+      const translateX = distance > 0 ? (isMobile ? 400 : 600) : (isMobile ? -400 : -600);
+      const scale = isMobile ? 0.9 : 0.85;
       return {
-        transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(0.85)`,
+        transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
         opacity: 0.7,
         zIndex: 5,
         url,
@@ -127,11 +130,9 @@ const HorizontalScrollCarousel = () => {
   return (
     <div className="productScrollMainContainer">
       <h2 className="products-title">
-        <span className="products-title-gradient">
-          <p>Our</p>
-          <p className="products-title-gradient-productText">Product</p>
-          <p>Range</p>
-        </span>
+        <h3 className="products-title-gradient">
+          Our Product Range
+        </h3>
         <p className="products-description">
           Discover our comprehensive collection of premium electrical products
           designed for modern living and working spaces.
@@ -169,7 +170,9 @@ const HorizontalScrollCarousel = () => {
               );
             })}
           </div>
+        </div>
           {/* Navigation Buttons */}
+          <div className="nav-button-container">
           <button onClick={prevSlide} className="nav-button nav-button-left">
             <svg
               width="24"
@@ -194,7 +197,7 @@ const HorizontalScrollCarousel = () => {
               <path d="M9 18l6-6-6-6" />
             </svg>
           </button>
-        </div>
+          </div>
       </div>
     </div>
   );

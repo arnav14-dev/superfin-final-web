@@ -273,7 +273,7 @@ const HomePage = () => {
                 variants={itemVariants}
                 className="features-title"
               >
-                <span className="highlight">Smart Features</span>
+                <span className="highlight">Smart Switch Features</span>
                 <br />
                 <span>That Transform Your Home</span>
               </motion.h1>

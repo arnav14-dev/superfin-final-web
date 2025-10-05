@@ -3,12 +3,13 @@
 /* Hero Section */
 .hero-section {
   position: relative;
-  min-height: 100vh;
+  height: 100vh !important;
   display: flex;
   align-items: center;
   justify-content: center;
   /* Removed overflow: hidden and isolation: isolate to fix background-attachment: fixed */
   z-index: 1;
+  background-color: black;
 }
 
 /* Loading states */
@@ -213,7 +214,6 @@
 /* Product Series Section */
 .product-series-section {
   background: var(--background-light);
-  padding: 5rem 0;
   position: relative;
   z-index: 100;
   transform: translateZ(100px);
