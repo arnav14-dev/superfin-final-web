@@ -5,8 +5,9 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-light);
 }
 
@@ -39,6 +40,7 @@
   justify-content: space-between;
   align-items: center;
   height: 4rem; /* 16 */
+  background: transparent;
 }
 
 @media (max-width: 1200px) and (min-width: 768px) {
@@ -51,12 +53,14 @@
 .logo-image {
   min-width: 14rem;
   height: 4rem;
-  background-image: url('../../public/assets/logo.svg');
+  background-image: url('/assets/logo.svg');
   background-size: 15rem;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: transparent;
   cursor: pointer;
   transition: transform 0.3s ease;
+  display: block;
 }
 
 .logo-image:hover {
@@ -109,7 +113,6 @@
 
 .navbar-item {
   position: relative;
-  group: true;
 }
 
 .navbar-link {
