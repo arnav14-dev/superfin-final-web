@@ -130,6 +130,47 @@ Coverflow Carousel Styles
   /* color: white; */
 }
 
+.nav-button-container .nav-button:active {
+  background-color: #B38A51;
+  border-color: #B38A51;
+  box-shadow: 0 12px 35px rgba(212, 175, 55, 0.25), 0 6px 15px rgba(212, 175, 55, 0.15);
+  opacity: 1;
+  transform: scale(0.95);
+}
+
+.nav-button-container .nav-button:focus {
+  outline: none;
+  background-color: #B38A51;
+  border-color: #B38A51;
+  box-shadow: 0 12px 35px rgba(212, 175, 55, 0.25), 0 6px 15px rgba(212, 175, 55, 0.15);
+  opacity: 1;
+}
+
+/* Fix for touch devices - remove hover state after touch */
+@media (hover: none) and (pointer: coarse) {
+  .nav-button-container .nav-button:hover {
+    background: rgba(255, 255, 255, 0.888);
+    border-color: rgba(212, 175, 55, 0.3);
+    box-shadow: none;
+    opacity: 0.9;
+  }
+  
+  .nav-button-container .nav-button:active {
+    background-color: #B38A51;
+    border-color: #B38A51;
+    box-shadow: 0 12px 35px rgba(212, 175, 55, 0.25), 0 6px 15px rgba(212, 175, 55, 0.15);
+    opacity: 1;
+    transform: scale(0.95);
+  }
+  
+  .nav-button-container .nav-button:focus {
+    background: rgba(255, 255, 255, 0.888);
+    border-color: rgba(212, 175, 55, 0.3);
+    box-shadow: none;
+    opacity: 0.9;
+  }
+}
+
 .nav-button-container{
   width: 100%;
   display: flex;

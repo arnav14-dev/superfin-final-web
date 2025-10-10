@@ -35,33 +35,6 @@ const AboutPage = () => {
     }
   };
 
-  const milestones = [
-    {
-      year: '2006',
-      title: 'Company Founded',
-      description: 'Started as a small electrical components manufacturer with a vision to revolutionize the industry.'
-    },
-    {
-      year: '2010',
-      title: 'First Smart Switch',
-      description: 'Launched our first smart electrical switch, pioneering the smart home revolution in India.'
-    },
-    {
-      year: '2015',
-      title: 'National Expansion',
-      description: 'Expanded operations across major Indian cities, establishing a strong distribution network.'
-    },
-    {
-      year: '2020',
-      title: 'Digital Transformation',
-      description: 'Launched our online platform and mobile app, making our products accessible nationwide.'
-    },
-    {
-      year: '2023',
-      title: 'Innovation Leader',
-      description: 'Became the leading innovator in smart electrical switches with cutting-edge technology.'
-    }
-  ];
 
   const teamMembers = [
     {
@@ -194,46 +167,6 @@ We provide innovative solutions for residential, commercial, and hospitality sec
         </div>
       </section>
 
-      {/* Milestones Section */}
-      <section className="about-milestones">
-        <div className="about-milestones-content">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <motion.h2 
-              variants={itemVariants}
-              className="about-milestones-title"
-            >
-              Our Journey
-            </motion.h2>
-            
-            <motion.p 
-              variants={itemVariants}
-              className="about-milestones-subtitle"
-            >
-              Key milestones that shaped our company and the electrical industry
-            </motion.p>
-
-            <motion.div 
-              variants={itemVariants}
-              className="milestones-timeline"
-            >
-              {milestones.map((milestone, index) => (
-                <div key={index} className="milestone-item">
-                  <div className="milestone-content">
-                    <h3 className="milestone-title">{milestone.title}</h3>
-                    <p className="milestone-description">{milestone.description}</p>
-                  <div className="milestone-year">{milestone.year}</div>
-                  </div>
-                </div>
-              ))}
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
 
 
       {/* Values Section */}

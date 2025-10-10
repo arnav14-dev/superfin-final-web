@@ -12,8 +12,8 @@ const HorizontalScrollCarousel = () => {
   const slides = [
     {
       id: 0,
-      src: "/assets/2.svg",
-      src2: "/assets/1.svg",
+      src: "/assets/1.svg",
+      src2: "/assets/2.svg",
       alt: "Uniq Series",
       href: "/product/uniq-series",
     },
@@ -46,6 +46,17 @@ const HorizontalScrollCarousel = () => {
 
   const prevSlide = () => {
     setActiveIndex((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  // Handle button blur after click to remove stuck hover state on touch devices
+  const handleButtonClick = (callback) => {
+    return (e) => {
+      callback();
+      // Blur the button after a short delay to remove focus/hover state
+      setTimeout(() => {
+        e.target.blur();
+      }, 150);
+    };
   };
 
   const goToSlide = (index) => {
@@ -173,7 +184,7 @@ const HorizontalScrollCarousel = () => {
         </div>
           {/* Navigation Buttons */}
           <div className="nav-button-container">
-          <button onClick={prevSlide} className="nav-button nav-button-left">
+          <button onClick={handleButtonClick(prevSlide)} className="nav-button nav-button-left">
             <svg
               width="24"
               height="24"
@@ -185,7 +196,7 @@ const HorizontalScrollCarousel = () => {
               <path d="M15 18l-6-6 6-6" />
             </svg>
           </button>
-          <button onClick={nextSlide} className="nav-button nav-button-right">
+          <button onClick={handleButtonClick(nextSlide)} className="nav-button nav-button-right">
             <svg
               width="24"
               height="24"

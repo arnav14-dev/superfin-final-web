@@ -44,7 +44,7 @@
   align-items: center;
   text-decoration: none;
   transition: all 0.3s ease;
-  background-image: url('../../public/assets/logo.png');
+  background-image: url('../../public/assets/logo.svg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

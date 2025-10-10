@@ -57,7 +57,7 @@ const ProductSeries = {
       },
       {
         id: "fix-card2",
-        title: "Modular switches",
+        title: "Modular Switches",
         description:
           "Durable. Practical. Affordable.",
         image: '/assets/FIX_2.png',
@@ -73,10 +73,10 @@ const ProductSeries = {
     cards: [
       {
         id: "classic-card5",
-        title: "Colour Options available",
+        title: "Colour Options Available",
         description:
           "Multiple color variants to perfectly match your home's aesthetic.",
-        image: "/assets/CLASSIC1.png",
+        image: "/assets/CLASSIC1.svg",
         cardType: "shadow",
       },
       {
@@ -97,7 +97,7 @@ const ProductSeries = {
       },
       {
         id: "classic-card2",
-        title: "Customised icon",
+        title: "Customised Icon",
         description:
           "Personalized iconography and visual elements for intuitive control.",
         image: "/assets/classicMini2.png",
@@ -105,7 +105,7 @@ const ProductSeries = {
       },
       {
         id: "classic-card1",
-        title: "Full customisation",
+        title: "Full Customisation",
         description:
           "Complete personalization options to match your unique style and preferences.",
         image: "/assets/classicMini1.png",
@@ -121,7 +121,7 @@ const ProductSeries = {
     cards: [
       {
         id: "uniq-card1",
-        title: "Toughened glass panel",
+        title: "Toughened Glass Panel",
         description:
           "Durable glass panels designed to withstand daily use while maintaining elegance.",
         image: "/assets/uniq1.png",
@@ -129,7 +129,7 @@ const ProductSeries = {
       },
       {
         id: "uniq-card2",
-        title: "Panel Colour options available",
+        title: "Panel Colour Options Available",
         description:
           "Multiple panel color options to complement any interior design scheme.",
         image: "/assets/uniq2.png",
@@ -137,7 +137,7 @@ const ProductSeries = {
       },
       {
         id: "uniq-card3",
-        title: "Available in 2,4,6,8 module sizes",
+        title: "Available in 2,4,6,8 Module Sizes",
         description:
           "Flexible module configurations to suit different installation requirements.",
         image: "/assets/uniq3.png",
@@ -153,7 +153,7 @@ const ProductSeries = {
     cards: [
       {
         id: "nano-card1",
-        title: "Child lock",
+        title: "Child Lock",
         description:
           "Advanced child lock mechanisms to ensure maximum safety for young families.",
         image: "/assets/nano1.png",
@@ -161,7 +161,7 @@ const ProductSeries = {
       },
       {
         id: "nano-card2",
-        title: "Zero trouble installation",
+        title: "Zero Trouble Installation",
         description:
           "Effortless installation process with clear instructions and no complications.",
         image: "/assets/nano2.png",
@@ -169,7 +169,7 @@ const ProductSeries = {
       },
       {
         id: "nano-card3",
-        title: "Waterguard display",
+        title: "Waterguard Display",
         description:
           "Water-resistant display technology for reliable operation in humid conditions.",
         image: "/assets/nano3.png",
@@ -177,7 +177,7 @@ const ProductSeries = {
       },
       {
         id: "nano-card4",
-        title: "Shock proof",
+        title: "Shock Proof",
         description:
           "Enhanced safety features with shock-proof design for complete protection.",
         image: "/assets/nano4.png",
@@ -196,7 +196,7 @@ const ProductSeries = {
         title: "Available in 2,4,6,8,12 Modules",
         description:
           "Flexible options to suit different installation requirements.",
-        image: "/assets/nova1.png",
+        image: "/assets/NOVA_1.png",
         cardType: "bordered",
       },
       {

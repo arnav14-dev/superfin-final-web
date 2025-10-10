@@ -51,7 +51,7 @@
 .logo-image {
   min-width: 14rem;
   height: 4rem;
-  background-image: url('../../public/assets/logo.png');
+  background-image: url('../../public/assets/logo.svg');
   background-size: 15rem;
   background-position: center;
   background-repeat: no-repeat;
