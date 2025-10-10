@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 // Components
 import Navbar from './components/Navbar';
@@ -39,6 +40,7 @@ function App() {
         
         <Footer />
         <WhatsAppFloat />
+        <SpeedInsights />
       </div>
     </Router>
   );
