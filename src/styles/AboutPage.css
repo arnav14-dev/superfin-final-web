@@ -200,6 +200,7 @@
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
+  padding-top: 10px !important;
 }
 
 .about-values-subtitle {

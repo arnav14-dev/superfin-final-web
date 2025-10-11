@@ -196,7 +196,7 @@ const ProductSeries = {
         title: "Available in 2,4,6,8,12 Modules",
         description:
           "Flexible options to suit different installation requirements.",
-        image: "/assets/NOVA_1.png",
+        image: "/assets/NOVA_1.jpeg",
         cardType: "bordered",
       },
       {
