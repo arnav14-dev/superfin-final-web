@@ -10,7 +10,6 @@ import WhatsAppFloat from './components/WhatsAppFloat';
 
 // Pages
 import HomePage from './pages/HomePage';
-// import FeaturesPage from './pages/FeaturesPage';
 import ProductPage from './pages/ProductPage';
 import TestimonialsPage from './pages/TestimonialsPage';
 import AboutPage from './pages/AboutPage';
