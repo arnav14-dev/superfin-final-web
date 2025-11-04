@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { 
-  ArrowRight, 
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import {
+  ArrowRight,
   Star,
   Award,
   Users,
   Building,
   Target,
   Heart,
-  Lightbulb
-} from 'lucide-react';
+  Lightbulb,
+  DownloadIcon,
+} from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMicrophone,
@@ -20,13 +21,13 @@ import {
   faMobileAlt,
   faFingerprint,
 } from "@fortawesome/free-solid-svg-icons";
-import HorizontalScrollCarousel from '../components/HorizontalScrollCarousel';
-import ClockCard from '../components/ClockCard';
-import '../styles/HomePage.css';
-import '../styles/features.css';
-import TestimonialsPage from './TestimonialsPage';
-import AboutPage from './AboutPage';
-import ContactPage from './ContactPage';
+import HorizontalScrollCarousel from "../components/HorizontalScrollCarousel";
+import ClockCard from "../components/ClockCard";
+import "../styles/HomePage.css";
+import "../styles/features.css";
+import TestimonialsPage from "./TestimonialsPage";
+import AboutPage from "./AboutPage";
+import ContactPage from "./ContactPage";
 
 const HomePage = () => {
   const [activeMode, setActiveMode] = useState("home");
@@ -37,35 +38,35 @@ const HomePage = () => {
   useEffect(() => {
     const preloadImages = () => {
       const imageUrls = [
-        '/assets/landingpage_optimized.jpg',
-        '/assets/landinPadeDim_optimized.jpg'
+        "/assets/landingpage_optimized.jpg",
+        "/assets/landinPadeDim_optimized.jpg",
       ];
 
       let loadedCount = 0;
       const totalImages = imageUrls.length;
 
       // Use Promise.all for better performance
-      const loadPromises = imageUrls.map(url => {
+      const loadPromises = imageUrls.map((url) => {
         return new Promise((resolve, reject) => {
           const img = new Image();
-          
+
           // Optimize image loading
-          img.crossOrigin = 'anonymous';
-          img.loading = 'eager';
-          img.decoding = 'async';
-          img.fetchPriority = 'high';
-          
+          img.crossOrigin = "anonymous";
+          img.loading = "eager";
+          img.decoding = "async";
+          img.fetchPriority = "high";
+
           img.onload = () => {
             loadedCount++;
             resolve(img);
           };
-          
+
           img.onerror = () => {
             console.warn(`Failed to load image: ${url}`);
             loadedCount++;
             reject(new Error(`Failed to load: ${url}`));
           };
-          
+
           // Set src after setting up event listeners
           img.src = url;
         });
@@ -77,7 +78,7 @@ const HomePage = () => {
     };
 
     // Start preloading immediately with high priority
-    if ('requestIdleCallback' in window) {
+    if ("requestIdleCallback" in window) {
       requestIdleCallback(preloadImages, { timeout: 1000 });
     } else {
       // Fallback for browsers without requestIdleCallback
@@ -89,7 +90,7 @@ const HomePage = () => {
   const handleModeChange = (newMode) => {
     if (newMode !== activeMode && imagesLoaded) {
       setIsTransitioning(true);
-      
+
       // Add a small delay to ensure smooth transition
       setTimeout(() => {
         setActiveMode(newMode);
@@ -164,9 +165,9 @@ const HomePage = () => {
   ];
 
   const aboutStats = [
-    { icon: Award, number: '17+', label: 'Years Experience' },
-    { icon: Users, number: '50,000+', label: 'Happy Customers' },
-    { icon: Building, number: '25+', label: 'Cities Served' }
+    { icon: Award, number: "17+", label: "Years Experience" },
+    { icon: Users, number: "50,000+", label: "Happy Customers" },
+    { icon: Building, number: "25+", label: "Cities Served" },
   ];
 
   const containerVariants = {
@@ -174,9 +175,9 @@ const HomePage = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
@@ -184,21 +185,32 @@ const HomePage = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6 }
-    }
+      transition: { duration: 0.6 },
+    },
   };
 
   return (
     <div className="homepage">
       {/* Hero Section */}
-      <section id="home" className={`hero-section ${activeMode === "leave" ? "leave-mode" : "home-mode"} ${!imagesLoaded ? 'loading' : ''}`}>
+      <section
+        id="home"
+        className={`hero-section ${
+          activeMode === "leave" ? "leave-mode" : "home-mode"
+        } ${!imagesLoaded ? "loading" : ""}`}
+      >
         {/* Fixed Background Image */}
-        <img 
-          className={`fixed-background-img ${activeMode === "leave" ? "leave-mode" : "home-mode"}`}
-          src={activeMode === "leave" ? "/assets/landinPadeDim_optimized.jpg" : "/assets/landingpage_optimized.jpg"}
+        <img
+          className={`fixed-background-img ${
+            activeMode === "leave" ? "leave-mode" : "home-mode"
+          }`}
+          src={
+            activeMode === "leave"
+              ? "/assets/landinPadeDim_optimized.jpg"
+              : "/assets/landingpage_optimized.jpg"
+          }
           alt="Background"
         />
-        
+
         {/* Loading Overlay */}
         {!imagesLoaded && (
           <div className="loading-overlay">
@@ -206,21 +218,19 @@ const HomePage = () => {
             <p className="loading-text">Loading...</p>
           </div>
         )}
-        
+
         {/* Transition Overlay */}
-        {isTransitioning && (
-          <div className="transition-overlay"></div>
-        )}
-        
+        {isTransitioning && <div className="transition-overlay"></div>}
+
         {/* Overlay for better text readability */}
         <div className="hero-overlay"></div>
-        
+
         {/* Subtle pattern overlay */}
         <div className="hero-pattern"></div>
-        
+
         {/* Smart Clock */}
         <ClockCard activeMode={activeMode} setActiveMode={setActiveMode} />
-        
+
         <div className="hero-content">
           <motion.div
             variants={containerVariants}
@@ -228,31 +238,31 @@ const HomePage = () => {
             animate="visible"
             className="text-center"
           >
-            <motion.h1 
-              variants={itemVariants}
-              className="hero-title"
-            >
-              The Smartest Thing <br /> <span className="gradient-text">On Your Wall</span>
+            <motion.h1 variants={itemVariants} className="hero-title">
+              The Smartest Thing <br />{" "}
+              <span className="gradient-text">On Your Wall</span>
             </motion.h1>
-            
-            <motion.p 
-              variants={itemVariants}
-              className="hero-subtitle"
-            >
+
+            <motion.p variants={itemVariants} className="hero-subtitle">
               Sleek design. Intelligent features. Total control.
             </motion.p>
-            
-            <motion.div 
-              variants={itemVariants}
-              className="hero-buttons"
-            >
-              <Link to="/product/gr8-series" className="hero-button hero-button-primary">
+
+            <motion.div variants={itemVariants} className="hero-buttons">
+              <Link
+                to="/product/gr8-series"
+                className="hero-button hero-button-primary"
+              >
                 Explore Products
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <Link to="/" className="hero-button hero-button-secondary" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                Get Free Quote
-              </Link>
+              <a
+                href="/assets/Superfin Master Catalogue.pdf"
+                download="Superfin Master Catalogue.pdf"
+                className="hero-button hero-button-primary"
+              >
+                Get Master Catalogue
+                <DownloadIcon/>
+              </a>
             </motion.div>
           </motion.div>
         </div>
@@ -269,26 +279,20 @@ const HomePage = () => {
               viewport={{ once: true }}
               className="text-center"
             >
-              <motion.h1 
-                variants={itemVariants}
-                className="features-title"
-              >
+              <motion.h1 variants={itemVariants} className="features-title">
                 <span className="highlight">Smart Switch Features</span>
                 <br />
                 <span>That Transform Your Home</span>
               </motion.h1>
-              
-              <motion.p 
-                variants={itemVariants}
-                className="features-subtitle"
-              >
+
+              <motion.p variants={itemVariants} className="features-subtitle">
                 Experience the future of home automation with our premium smart
                 switches. Sleek design meets intelligent functionality for total
                 control.
               </motion.p>
             </motion.div>
           </div>
-          
+
           <div className="features-container">
             <motion.div
               variants={containerVariants}
@@ -330,17 +334,17 @@ const HomePage = () => {
 
       {/* Testimonials Section */}
       <section id="testimonials" className="testimonials-section">
-        <TestimonialsPage/>
+        <TestimonialsPage />
       </section>
 
       {/* About Us Section */}
       <section id="about" className="about-section">
-        <AboutPage/>
+        <AboutPage />
       </section>
 
       {/* CTA Section */}
       <section id="contact" className="cta-section">
-        <ContactPage/>
+        <ContactPage />
       </section>
     </div>
   );
