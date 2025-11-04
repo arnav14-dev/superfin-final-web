@@ -256,12 +256,14 @@ const HomePage = () => {
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <a
-                href="/assets/Superfin Master Catalogue.pdf"
-                download="Superfin Master Catalogue.pdf"
+                href="https://drive.google.com/file/d/1m9WAaMn9WBaDgNz8anIyeMvBC76Jj5ZZ/view?usp=sharing"
+                download="Superfin Master Catalogue.pdf" // This tells the browser to suggest this filename
+                target="_blank" // Optional: Opens the link in a new tab
+                rel="noopener noreferrer" // Recommended for security when using target="_blank"
                 className="hero-button hero-button-primary"
               >
                 Get Master Catalogue
-                <DownloadIcon/>
+                <DownloadIcon />
               </a>
             </motion.div>
           </motion.div>
