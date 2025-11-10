@@ -14,8 +14,9 @@ import ProductPage from './pages/ProductPage';
 import TestimonialsPage from './pages/TestimonialsPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
-import CataloguesPage from './pages/CataloguesPage';
 import FAQPage from './pages/FAQPage';
+import HorizontalScrollCarousel from './components/HorizontalScrollCarousel';
+import FeaturePage from './pages/FeaturePage';
 
 function App() {
   return (
@@ -31,7 +32,11 @@ function App() {
         >
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/feature" element={<FeaturePage />} />
+            <Route path="/product" element={<HorizontalScrollCarousel />} />
             <Route path="/product/:seriesname" element={<ProductPage />} />
+            <Route path="/testimonials" element={<TestimonialsPage />} />
+            <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/faq" element={<FAQPage />} />
           </Routes>

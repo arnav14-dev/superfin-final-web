@@ -3,24 +3,9 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
-  Star,
-  Award,
-  Users,
-  Building,
-  Target,
-  Heart,
-  Lightbulb,
   DownloadIcon,
 } from "lucide-react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faMicrophone,
-  faWrench,
-  faShieldAlt,
-  faTint,
-  faMobileAlt,
-  faFingerprint,
-} from "@fortawesome/free-solid-svg-icons";
+
 import HorizontalScrollCarousel from "../components/HorizontalScrollCarousel";
 import ClockCard from "../components/ClockCard";
 import "../styles/HomePage.css";
@@ -28,6 +13,7 @@ import "../styles/features.css";
 import TestimonialsPage from "./TestimonialsPage";
 import AboutPage from "./AboutPage";
 import ContactPage from "./ContactPage";
+import FeaturePage from "./FeaturePage";
 
 const HomePage = () => {
   const [activeMode, setActiveMode] = useState("home");
@@ -43,7 +29,6 @@ const HomePage = () => {
       ];
 
       let loadedCount = 0;
-      const totalImages = imageUrls.length;
 
       // Use Promise.all for better performance
       const loadPromises = imageUrls.map((url) => {
@@ -85,90 +70,6 @@ const HomePage = () => {
       setTimeout(preloadImages, 0);
     }
   }, []);
-
-  // Handle mode switching with smooth transition
-  const handleModeChange = (newMode) => {
-    if (newMode !== activeMode && imagesLoaded) {
-      setIsTransitioning(true);
-
-      // Add a small delay to ensure smooth transition
-      setTimeout(() => {
-        setActiveMode(newMode);
-        setTimeout(() => {
-          setIsTransitioning(false);
-        }, 500); // Match CSS transition duration
-      }, 100);
-    }
-  };
-
-  const features = [
-    {
-      icon: faMicrophone,
-      title: "Voice Control",
-      description: "Control devices using Alexa or Google Assistant",
-      details: [
-        "Works with all major voice assistants",
-        "Custom voice commands setup",
-        "Multi-room control capability",
-      ],
-    },
-    {
-      icon: faFingerprint,
-      title: "Touch Control",
-      description: "Smooth glass touch panels for instant response",
-      details: [
-        "Capacitive touch technology",
-        "Customizable LED indicators",
-        "Gesture recognition support",
-      ],
-    },
-    {
-      icon: faWrench,
-      title: "Retrofit Wiring",
-      description: "Fits into existing wiring without extra work",
-      details: [
-        "Standard wall box compatibility",
-        "Neutral wire not required",
-        "Professional installation support",
-      ],
-    },
-    {
-      icon: faShieldAlt,
-      title: "Durable & Long Life",
-      description: "Built with quality materials for long-term use",
-      details: [
-        "10-year warranty included",
-        "Temperature resistant design",
-        "Surge protection built-in",
-      ],
-    },
-    {
-      icon: faTint,
-      title: "Water Resistant",
-      description: "Safe to use in kitchens and humid areas",
-      details: [
-        "IP65 certified protection",
-        "Humidity resistant materials",
-        "Easy to clean surface",
-      ],
-    },
-    {
-      icon: faMobileAlt,
-      title: "App Control",
-      description: "Control from anywhere using the mobile app",
-      details: [
-        "Remote access from anywhere",
-        "Scene automation setup",
-        "Energy monitoring dashboard",
-      ],
-    },
-  ];
-
-  const aboutStats = [
-    { icon: Award, number: "17+", label: "Years Experience" },
-    { icon: Users, number: "50,000+", label: "Happy Customers" },
-    { icon: Building, number: "25+", label: "Cities Served" },
-  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -272,61 +173,7 @@ const HomePage = () => {
 
       {/* Features Section */}
       <section id="features" className="features-section">
-        <div className="features-header">
-          <div className="features-container">
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <motion.h1 variants={itemVariants} className="features-title">
-                <span className="highlight">Smart Switch Features</span>
-                <br />
-                <span>That Transform Your Home</span>
-              </motion.h1>
-
-              <motion.p variants={itemVariants} className="features-subtitle">
-                Experience the future of home automation with our premium smart
-                switches. Sleek design meets intelligent functionality for total
-                control.
-              </motion.p>
-            </motion.div>
-          </div>
-
-          <div className="features-container">
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="features-grid"
-            >
-              {features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className="feature-card"
-                >
-                  <div className="icon-box">
-                    <FontAwesomeIcon
-                      icon={feature.icon}
-                      className="feature-icon"
-                    />
-                  </div>
-                  <h3 className="feature-title">{feature.title}</h3>
-                  <p className="feature-description">{feature.description}</p>
-                  <ul className="feature-details">
-                    {feature.details.map((detail, detailIndex) => (
-                      <li key={detailIndex}>{detail}</li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
+        <FeaturePage/>
       </section>
 
       {/* Product Series Section */}
