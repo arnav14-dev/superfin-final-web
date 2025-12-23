@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
@@ -226,7 +226,7 @@ function ProductPage() {
   const seriesOptions = Object.keys(ProductSeries);
 
   // Function to convert URL parameter to series name
-  const urlToSeriesName = (urlParam) => {
+  const urlToSeriesName = useCallback((urlParam) => {
     if (!urlParam) return "GR8 Series";
     const decodedParam = decodeURIComponent(urlParam);
     const formattedName = decodedParam
@@ -239,12 +239,12 @@ function ProductPage() {
         series.toLowerCase() === formattedName.toLowerCase()
     );
     return matchedSeries || "GR8 Series";
-  };
+  }, [seriesOptions]);
 
   // Function to convert series name to URL parameter
-  const seriesToUrlParam = (seriesName) => {
+  const seriesToUrlParam = useCallback((seriesName) => {
     return seriesName.toLowerCase().replace(/\s+/g, "-");
-  };
+  }, []);
 
   // Scroll to top when component mounts
   useEffect(() => {
@@ -259,38 +259,45 @@ function ProductPage() {
     } else {
       navigate(`/product/${seriesToUrlParam("GR8 Series")}`, { replace: true });
     }
-  }, [seriesname, navigate]);
+  }, [seriesname, navigate, urlToSeriesName, seriesToUrlParam]);
 
   // Download brochure handler
-  const handleDownloadBrochure = async (brochureLink) => {
+  const handleDownloadBrochure = (brochureLink) => {
     try {
-      // Fetch the file
-      const response = await fetch(brochureLink);
-      if (!response.ok) {
-        throw new Error('Failed to fetch brochure');
-      }
-      
-      // Get the blob
-      const blob = await response.blob();
-      
       // Extract filename from the link
       const filename = brochureLink.split('/').pop();
       
-      // Create a temporary link and trigger download
-      const url = window.URL.createObjectURL(blob);
+      // Create a temporary anchor element for download
+      // This approach works better for deployed sites
       const link = document.createElement('a');
-      link.href = url;
+      
+      // Use absolute URL if needed (for deployed sites)
+      const absoluteUrl = brochureLink.startsWith('http') 
+        ? brochureLink 
+        : `${window.location.origin}${brochureLink}`;
+      
+      link.href = absoluteUrl;
       link.download = filename;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.style.display = 'none';
+      
       document.body.appendChild(link);
       link.click();
       
-      // Cleanup
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
+      // Cleanup after a short delay
+      setTimeout(() => {
+        if (document.body.contains(link)) {
+          document.body.removeChild(link);
+        }
+      }, 100);
     } catch (error) {
       console.error('Error downloading brochure:', error);
-      // Fallback: open in new tab if download fails
-      window.open(brochureLink, '_blank');
+      // Fallback: open in new tab
+      const absoluteUrl = brochureLink.startsWith('http') 
+        ? brochureLink 
+        : `${window.location.origin}${brochureLink}`;
+      window.open(absoluteUrl, '_blank');
     }
   };
 
@@ -401,7 +408,6 @@ function ProductPage() {
                 </div>
                 <div className="product-page-cards-grid">
                   {currentSeriesData.cards.map((card, index) => {
-                    const bgColor = getCardBackgroundColor(card.cardType);
                     const isEven = index % 2 === 0;
 
                     return (
