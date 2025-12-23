@@ -261,6 +261,39 @@ function ProductPage() {
     }
   }, [seriesname, navigate]);
 
+  // Download brochure handler
+  const handleDownloadBrochure = async (brochureLink) => {
+    try {
+      // Fetch the file
+      const response = await fetch(brochureLink);
+      if (!response.ok) {
+        throw new Error('Failed to fetch brochure');
+      }
+      
+      // Get the blob
+      const blob = await response.blob();
+      
+      // Extract filename from the link
+      const filename = brochureLink.split('/').pop();
+      
+      // Create a temporary link and trigger download
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      
+      // Cleanup
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Error downloading brochure:', error);
+      // Fallback: open in new tab if download fails
+      window.open(brochureLink, '_blank');
+    }
+  };
+
   const currentSeriesData =
     ProductSeries[selectedSeries] || ProductSeries["GR8 Series"];
 
@@ -332,15 +365,15 @@ function ProductPage() {
                 >
                   {currentSeriesData.description}
                 </motion.p>
-                <motion.a
+                <motion.button
                   variants={itemVariants}
-                  href={currentSeriesData.brochureLink}
+                  onClick={() => handleDownloadBrochure(currentSeriesData.brochureLink)}
                   className="product-page-download-brochure"
-                  download
+                  type="button"
                 >
                   <span>Download Brochure</span>
                   <Download className="product-page-download-icon" />
-                </motion.a>
+                </motion.button>
               </div>
             </motion.div>
 

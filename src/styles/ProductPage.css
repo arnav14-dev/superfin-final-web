@@ -196,9 +196,12 @@
   background: var(--accent-gold);
   color: white;
   text-decoration: none;
+  border: none;
   border-radius: 50px;
   font-weight: 600;
   font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
   transition: all 0.3s ease;
   align-self: flex-start;
   position: relative;
