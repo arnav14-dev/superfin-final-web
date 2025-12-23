@@ -267,77 +267,97 @@ function ProductPage() {
       // Extract filename from the link
       const filename = brochureLink.split('/').pop();
       
-      // Build absolute URL
+      // Build absolute URL - handle both relative and absolute paths
       const absoluteUrl = brochureLink.startsWith('http') 
         ? brochureLink 
-        : `${window.location.origin}${brochureLink}`;
+        : `${window.location.origin}${brochureLink.startsWith('/') ? '' : '/'}${brochureLink}`;
       
-      // Properly encode the URL to handle spaces in filenames
-      // Split URL into parts, encode only the filename
-      const urlParts = absoluteUrl.split('/');
-      const filenamePart = urlParts[urlParts.length - 1];
-      const pathParts = urlParts.slice(0, -1);
-      const encodedUrl = [...pathParts, encodeURIComponent(filenamePart)].join('/');
+      // Try multiple approaches for maximum compatibility with deployed servers
       
-      // Try to fetch the file first to verify it exists
-      const response = await fetch(encodedUrl);
-      
-      if (!response.ok) {
-        // If fetch fails, try the original URL
-        console.warn('Encoded URL failed, trying original URL');
-        const fallbackResponse = await fetch(absoluteUrl);
-        if (!fallbackResponse.ok) {
-          throw new Error(`Failed to fetch file: ${fallbackResponse.status}`);
+      // Approach 1: Try fetch + blob download (works for same-origin)
+      try {
+        const response = await fetch(absoluteUrl, {
+          method: 'GET',
+          cache: 'no-cache',
+        });
+        
+        if (response.ok) {
+          const blob = await response.blob();
+          
+          // Only reject if it's clearly an HTML error page
+          if (blob.size >= 500) {
+            // File is large enough, download it
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = filename;
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            
+            setTimeout(() => {
+              document.body.removeChild(link);
+              window.URL.revokeObjectURL(url);
+            }, 100);
+            return;
+          } else {
+            // Small file, check if it's HTML
+            try {
+              const firstBytes = await blob.slice(0, 50).text();
+              const trimmed = firstBytes.trim();
+              if (trimmed.startsWith('<') || trimmed.startsWith('<!DOCTYPE') || trimmed.startsWith('<html')) {
+                // It's an error page, fall through to direct download
+              } else {
+                // Small but not HTML, might be valid, download it
+                const url = window.URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = filename;
+                link.style.display = 'none';
+                document.body.appendChild(link);
+                link.click();
+                
+                setTimeout(() => {
+                  document.body.removeChild(link);
+                  window.URL.revokeObjectURL(url);
+                }, 100);
+                return;
+              }
+            } catch (e) {
+              // Can't read bytes, fall through to direct download
+            }
+          }
         }
-        
-        // Use the fallback response
-        const blob = await fallbackResponse.blob();
-        const url = window.URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = filename;
-        link.style.display = 'none';
-        document.body.appendChild(link);
-        link.click();
-        
-        setTimeout(() => {
-          document.body.removeChild(link);
-          window.URL.revokeObjectURL(url);
-        }, 100);
-        return;
+      } catch (fetchError) {
+        // Fetch failed, try direct download approach
+        console.log('Fetch approach failed, trying direct download');
       }
       
-      // Check if response is actually a PDF
-      const contentType = response.headers.get('content-type');
-      const blob = await response.blob();
-      
-      // Verify it's a PDF (check content-type or blob type)
-      if (blob.size < 1000 || (!contentType?.includes('pdf') && !blob.type?.includes('pdf'))) {
-        // Likely an error page, try opening in new tab
-        console.warn('File appears to be invalid, opening in new tab');
-        window.open(encodedUrl, '_blank');
-        return;
-      }
-      
-      // Valid PDF, create download link
-      const url = window.URL.createObjectURL(blob);
+      // Approach 2: Direct download link (works better for deployed servers)
+      // This bypasses CORS and fetch restrictions
       const link = document.createElement('a');
-      link.href = url;
+      link.href = absoluteUrl;
       link.download = filename;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
       link.style.display = 'none';
+      
       document.body.appendChild(link);
       link.click();
       
+      // Cleanup after a short delay
       setTimeout(() => {
-        document.body.removeChild(link);
-        window.URL.revokeObjectURL(url);
+        if (document.body.contains(link)) {
+          document.body.removeChild(link);
+        }
       }, 100);
+      
     } catch (error) {
       console.error('Error downloading brochure:', error);
       // Final fallback: open in new tab
       const absoluteUrl = brochureLink.startsWith('http') 
         ? brochureLink 
-        : `${window.location.origin}${brochureLink}`;
+        : `${window.location.origin}${brochureLink.startsWith('/') ? '' : '/'}${brochureLink}`;
       window.open(absoluteUrl, '_blank');
     }
   };
