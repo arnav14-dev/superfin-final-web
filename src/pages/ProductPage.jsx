@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
@@ -21,7 +21,7 @@ const ProductSeries = {
     id: "1",
     description:
       `The GR8 Series is our premium modular series, crafted for modern living.It combines reliable performance with a neat modular design.Built to last and easy to use, it’s a switch you can trust every day.`,
-    brochureLink: "/assets/gr8 list final.pdf",
+    brochureLink: "https://superfin-brochure-links.s3.ap-south-1.amazonaws.com/gr8+list+final.pdf",
     cards: [
       {
         id: "gr8-card1",
@@ -45,7 +45,7 @@ const ProductSeries = {
     id: "2",
     description:
       "The FIX Series is a modular series made for simple, everyday use.It offers sturdy build quality with a straightforward design.Reliable, practical, and long-lasting — switches that make daily life easier.",
-    brochureLink: "/assets/FIX P LIST 2024.pdf",
+    brochureLink: "https://superfin-brochure-links.s3.ap-south-1.amazonaws.com/FIX+P+LIST+2024.pdf",
     cards: [
       {
         id: "fix-card1",
@@ -69,7 +69,7 @@ const ProductSeries = {
     id: "3",
     description:
       "Classic Series is fully customizable range, this series lets you choose from 6 colors, 2 to 18 modules, and your own icons. Available in glass or acrylic with matte or glossy finishes, it’s made to perfectly match your style and space.",
-    brochureLink: "/assets/Classic Series catalogue.pdf",
+    brochureLink: "https://superfin-brochure-links.s3.ap-south-1.amazonaws.com/Classic+Series+catalogue.pdf",
     cards: [
       {
         id: "classic-card5",
@@ -117,7 +117,7 @@ const ProductSeries = {
     id: "4",
     description:
       "Uniq series is available in 2, 4, 6, and 8 modules, this series comes in sleek black and white with 30+ variants. Its toughened glass panel is anti-fingerprint for a clean look, while the inbuilt Wi-Fi chip and master control make your home truly smart.",
-    brochureLink: "/assets/uniq series.pdf",
+    brochureLink: "https://superfin-brochure-links.s3.ap-south-1.amazonaws.com/uniq+series.pdf",
     cards: [
       {
         id: "uniq-card1",
@@ -149,7 +149,7 @@ const ProductSeries = {
     id: "5",
     description:
       "The Nano Series fits right into your modular plate with easy retrofit wiring. Its inbuilt Wi-Fi makes your home smarter, and with eight variants, there’s one for every style.",
-    brochureLink: "/assets/Nano series .pdf",
+    brochureLink: "https://superfin-brochure-links.s3.ap-south-1.amazonaws.com/Nano+series+.pdf",
     cards: [
       {
         id: "nano-card1",
@@ -189,7 +189,7 @@ const ProductSeries = {
     id: "6",
     description:
       "Nova series is available in 2–12 modules with custom icons, 2 panel and 3 bezel colors. Metal base & border, 2.5D curved glass, 16A load with 2.5KV overload protection, and 50+ variants.",
-    brochureLink: "/assets/Nova Series.pdf",
+    brochureLink: "https://superfin-brochure-links.s3.ap-south-1.amazonaws.com/Nova+Series.pdf",
     cards: [
       {
         id: "metal-card1",
@@ -226,7 +226,7 @@ function ProductPage() {
   const seriesOptions = Object.keys(ProductSeries);
 
   // Function to convert URL parameter to series name
-  const urlToSeriesName = useCallback((urlParam) => {
+  const urlToSeriesName = (urlParam) => {
     if (!urlParam) return "GR8 Series";
     const decodedParam = decodeURIComponent(urlParam);
     const formattedName = decodedParam
@@ -239,12 +239,12 @@ function ProductPage() {
         series.toLowerCase() === formattedName.toLowerCase()
     );
     return matchedSeries || "GR8 Series";
-  }, [seriesOptions]);
+  };
 
   // Function to convert series name to URL parameter
-  const seriesToUrlParam = useCallback((seriesName) => {
+  const seriesToUrlParam = (seriesName) => {
     return seriesName.toLowerCase().replace(/\s+/g, "-");
-  }, []);
+  };
 
   // Scroll to top when component mounts
   useEffect(() => {
@@ -259,108 +259,7 @@ function ProductPage() {
     } else {
       navigate(`/product/${seriesToUrlParam("GR8 Series")}`, { replace: true });
     }
-  }, [seriesname, navigate, urlToSeriesName, seriesToUrlParam]);
-
-  // Download brochure handler
-  const handleDownloadBrochure = async (brochureLink) => {
-    try {
-      // Extract filename from the link
-      const filename = brochureLink.split('/').pop();
-      
-      // Build absolute URL - handle both relative and absolute paths
-      const absoluteUrl = brochureLink.startsWith('http') 
-        ? brochureLink 
-        : `${window.location.origin}${brochureLink.startsWith('/') ? '' : '/'}${brochureLink}`;
-      
-      // Try multiple approaches for maximum compatibility with deployed servers
-      
-      // Approach 1: Try fetch + blob download (works for same-origin)
-      try {
-        const response = await fetch(absoluteUrl, {
-          method: 'GET',
-          cache: 'no-cache',
-        });
-        
-        if (response.ok) {
-          const blob = await response.blob();
-          
-          // Only reject if it's clearly an HTML error page
-          if (blob.size >= 500) {
-            // File is large enough, download it
-            const url = window.URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = filename;
-            link.style.display = 'none';
-            document.body.appendChild(link);
-            link.click();
-            
-            setTimeout(() => {
-              document.body.removeChild(link);
-              window.URL.revokeObjectURL(url);
-            }, 100);
-            return;
-          } else {
-            // Small file, check if it's HTML
-            try {
-              const firstBytes = await blob.slice(0, 50).text();
-              const trimmed = firstBytes.trim();
-              if (trimmed.startsWith('<') || trimmed.startsWith('<!DOCTYPE') || trimmed.startsWith('<html')) {
-                // It's an error page, fall through to direct download
-              } else {
-                // Small but not HTML, might be valid, download it
-                const url = window.URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                link.href = url;
-                link.download = filename;
-                link.style.display = 'none';
-                document.body.appendChild(link);
-                link.click();
-                
-                setTimeout(() => {
-                  document.body.removeChild(link);
-                  window.URL.revokeObjectURL(url);
-                }, 100);
-                return;
-              }
-            } catch (e) {
-              // Can't read bytes, fall through to direct download
-            }
-          }
-        }
-      } catch (fetchError) {
-        // Fetch failed, try direct download approach
-        console.log('Fetch approach failed, trying direct download');
-      }
-      
-      // Approach 2: Direct download link (works better for deployed servers)
-      // This bypasses CORS and fetch restrictions
-      const link = document.createElement('a');
-      link.href = absoluteUrl;
-      link.download = filename;
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
-      link.style.display = 'none';
-      
-      document.body.appendChild(link);
-      link.click();
-      
-      // Cleanup after a short delay
-      setTimeout(() => {
-        if (document.body.contains(link)) {
-          document.body.removeChild(link);
-        }
-      }, 100);
-      
-    } catch (error) {
-      console.error('Error downloading brochure:', error);
-      // Final fallback: open in new tab
-      const absoluteUrl = brochureLink.startsWith('http') 
-        ? brochureLink 
-        : `${window.location.origin}${brochureLink.startsWith('/') ? '' : '/'}${brochureLink}`;
-      window.open(absoluteUrl, '_blank');
-    }
-  };
+  }, [seriesname, navigate]);
 
   const currentSeriesData =
     ProductSeries[selectedSeries] || ProductSeries["GR8 Series"];
@@ -433,15 +332,16 @@ function ProductPage() {
                 >
                   {currentSeriesData.description}
                 </motion.p>
-                <motion.button
+                <motion.a
                   variants={itemVariants}
-                  onClick={() => handleDownloadBrochure(currentSeriesData.brochureLink)}
+                  href={currentSeriesData.brochureLink}
                   className="product-page-download-brochure"
-                  type="button"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <span>Download Brochure</span>
+                  <span>View Brochure</span>
                   <Download className="product-page-download-icon" />
-                </motion.button>
+                </motion.a>
               </div>
             </motion.div>
 
@@ -469,6 +369,7 @@ function ProductPage() {
                 </div>
                 <div className="product-page-cards-grid">
                   {currentSeriesData.cards.map((card, index) => {
+                    const bgColor = getCardBackgroundColor(card.cardType);
                     const isEven = index % 2 === 0;
 
                     return (
