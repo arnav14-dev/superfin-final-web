@@ -262,38 +262,79 @@ function ProductPage() {
   }, [seriesname, navigate, urlToSeriesName, seriesToUrlParam]);
 
   // Download brochure handler
-  const handleDownloadBrochure = (brochureLink) => {
+  const handleDownloadBrochure = async (brochureLink) => {
     try {
       // Extract filename from the link
       const filename = brochureLink.split('/').pop();
       
-      // Create a temporary anchor element for download
-      // This approach works better for deployed sites
-      const link = document.createElement('a');
-      
-      // Use absolute URL if needed (for deployed sites)
+      // Build absolute URL
       const absoluteUrl = brochureLink.startsWith('http') 
         ? brochureLink 
         : `${window.location.origin}${brochureLink}`;
       
-      link.href = absoluteUrl;
-      link.download = filename;
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
-      link.style.display = 'none';
+      // Properly encode the URL to handle spaces in filenames
+      // Split URL into parts, encode only the filename
+      const urlParts = absoluteUrl.split('/');
+      const filenamePart = urlParts[urlParts.length - 1];
+      const pathParts = urlParts.slice(0, -1);
+      const encodedUrl = [...pathParts, encodeURIComponent(filenamePart)].join('/');
       
+      // Try to fetch the file first to verify it exists
+      const response = await fetch(encodedUrl);
+      
+      if (!response.ok) {
+        // If fetch fails, try the original URL
+        console.warn('Encoded URL failed, trying original URL');
+        const fallbackResponse = await fetch(absoluteUrl);
+        if (!fallbackResponse.ok) {
+          throw new Error(`Failed to fetch file: ${fallbackResponse.status}`);
+        }
+        
+        // Use the fallback response
+        const blob = await fallbackResponse.blob();
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = filename;
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        
+        setTimeout(() => {
+          document.body.removeChild(link);
+          window.URL.revokeObjectURL(url);
+        }, 100);
+        return;
+      }
+      
+      // Check if response is actually a PDF
+      const contentType = response.headers.get('content-type');
+      const blob = await response.blob();
+      
+      // Verify it's a PDF (check content-type or blob type)
+      if (blob.size < 1000 || (!contentType?.includes('pdf') && !blob.type?.includes('pdf'))) {
+        // Likely an error page, try opening in new tab
+        console.warn('File appears to be invalid, opening in new tab');
+        window.open(encodedUrl, '_blank');
+        return;
+      }
+      
+      // Valid PDF, create download link
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      link.style.display = 'none';
       document.body.appendChild(link);
       link.click();
       
-      // Cleanup after a short delay
       setTimeout(() => {
-        if (document.body.contains(link)) {
-          document.body.removeChild(link);
-        }
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
       }, 100);
     } catch (error) {
       console.error('Error downloading brochure:', error);
-      // Fallback: open in new tab
+      // Final fallback: open in new tab
       const absoluteUrl = brochureLink.startsWith('http') 
         ? brochureLink 
         : `${window.location.origin}${brochureLink}`;
