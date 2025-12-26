@@ -20,18 +20,14 @@ This project focuses on **clean UI, strong brand presence, performance, and usab
 
 ## 📸 Screenshots
 
-> **Note:** Add screenshots inside `public/assets/screenshots/` directory and update paths below.
-
-### Homepage
+### Homepage Light On
 ![Homepage](public/assets/screenshots/home.png)
+
+### Homepage Light Off
+![Homepage](public/assets/screenshots/mobile.png)
 
 ### Products Page
 ![Products](public/assets/screenshots/products.png)
-
-### Mobile View
-<p align="center">
-  <img src="public/assets/screenshots/mobile.png" width="400" alt="Mobile View" />
-</p>
 
 ---
 
@@ -320,22 +316,10 @@ Unauthorized copying, modification, or redistribution is strictly prohibited.
 
 ---
 
-## 📞 Contact & Support
-
-**SuperFin Electric Switches**
-
-- 📧 **Email**: simonienterprises@yahoo.com
-- 📞 **Phone**: +91 76667 93388
-- 💬 **WhatsApp**: +91 76667 93388
-
-For technical support or questions about this website, please contact the development team.
-
----
-
 ## 🙏 Acknowledgments
 
 Built with modern web technologies and best practices for optimal user experience and performance.
 
 ---
 
-**Last Updated**: 2024
+**Last Updated**: 2025
